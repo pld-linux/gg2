@@ -4,19 +4,19 @@
 %bcond_without	perl
 %bcond_without	esd
 #
-%define		_pre	pre6
+%define		_pre	pre7
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	0.%{_pre}.3
+Release:	0.%{_pre}.1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
 Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	a22e307e31605986169ec94af600bac5
+# Source0-md5:	855526fd075bfbd739a8bc823b2aa0ac
 URL:		http://www.gadu.gnu.pl/
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
@@ -25,7 +25,7 @@ BuildRequires:	automake >= 1.7
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
-BuildRequires:	intltool
+BuildRequires:	gettext-devel
 BuildRequires:	libgadu-devel >= 4:1.4
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
@@ -34,7 +34,7 @@ BuildRequires:	openssl-devel
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel   >= 2.0.0
-Requires:		gg2-ui
+Requires:	gg2-ui
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -338,7 +338,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 
 %build
 rm -f missing
-intltoolize --copy --force
+%{__gettextize}
 %{__libtoolize}
 %{__aclocal}
 %{__automake}
@@ -372,10 +372,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-cat gg2.desktop | sed -e 's/TryExec/Exec/' > $RPM_BUILD_ROOT%{_desktopdir}/gg2.desktop
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
-install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+install gg2.desktop $RPM_BUILD_ROOT%{_desktopdir}/gg2.desktop
 
 %find_lang %{name} --all-name --with-gnome
 
