@@ -1,5 +1,5 @@
 
-%define		snap 20021204
+%define		snap 20030104
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -10,11 +10,13 @@ Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.bz2
+Source1:	%{name}.desktop
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.7
+BuildRequires:	iksemel-devel >= 0.0.1
 BuildRequires:	glib2-devel  >= 2.0.1
 BuildRequires:	gtk+2-devel  >= 2.0.1
 BuildRequires:	libgadu-devel >= 20021123
@@ -81,6 +83,18 @@ Tlen.pl protocol plugin.
 
 %description tlen -l pl
 Wtyczka protoko³u Tlen.pl.
+
+%package jabber
+Summary:	Jabber.org plugin
+Summary(pl):	Wtyczka protoko³u Jabber
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
+
+%description jabber
+Tlen.pl protocol plugin.
+
+%description jabber -l pl
+Wtyczka protoko³u Jabber.org.
 
 %package sound-esd
 Summary:	Sound support with ESD
@@ -158,6 +172,7 @@ rm -f missing
 	--with-gtk2-gui \
 	--with-gadu-gadu \
 	--with-tlen \
+	--with-jabber \
 	--with-xosd \
 	--with-docklet \
 	--with-esd \
@@ -171,6 +186,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_datadir}/applications
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}/
+install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/online.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
+
+
 
 %find_lang %{name} --all-name --with-gnome
 
@@ -192,6 +214,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gg2/pixmaps/*png
 %{_datadir}/gg2/pixmaps/*gif
 
+%{_pixmapsdir}/%{name}.xpm
+%{_datadir}/applications/gg2.desktop
+
 %files emoticons
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons
 
@@ -202,6 +227,10 @@ rm -rf $RPM_BUILD_ROOT
 %files tlen
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libtlen_plugin.so
+
+%files jabber
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libjabber_plugin.so
 
 %files sound-esd
 %defattr(644,root,root,755)
