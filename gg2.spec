@@ -1,25 +1,26 @@
 
 %bcond_with	arts
+%bcond_without	perl
 
-%define		_pre	pre3
+%define		_snap	20030917
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	1.%{_pre}.1
+Release:	2.%{_snap}.1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}%{_pre}.tar.gz
-# Source0-md5:	49c52cec6869c9ed1b3c015f37401879
+#Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}-%{_snap}.tar.gz
+Source0:	%{name}-%{version}-%{_snap}.tar.gz
+# Source0-md5:	8026a52c6fa169a9f86603866870e09a
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
-#BuildRequires:	arts-devel
 BuildRequires:	perl-devel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
 BuildRequires:	esound-devel >= 0.2.7
-BuildRequires:	iksemel-devel >= 0.0.1
+BuildRequires:	loudmouth-devel >= 0.13.1
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
 BuildRequires:	libgadu-devel >= 1.0
@@ -31,6 +32,7 @@ BuildRequires:	xosd-devel   >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	fontconfig-devel
 %{?with_arts:BuildRequires:	arts-devel}
+%{?with_perl:BuildRequires:	perl-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -229,7 +231,7 @@ Themes for GNU Gadu 2 GUI.
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
-%setup -q -n %{name}-%{version}%{_pre}
+%setup -q -n %{name}-%{version}-%{_snap}
 
 %build
 rm -f missing
@@ -253,10 +255,12 @@ intltoolize --copy --force
  	--with-sms \
  	--with-external \
 %if %{with arts}
-	--with-arts \
+	--with-arts} \
 %endif
- 	--with-remote \
-	--enable-perl
+%if %{with perl}
+	--enable-perl \
+%endif
+ 	--with-remote
 
 %{__make}
 
