@@ -411,7 +411,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files emoticons
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons
+%{_datadir}/gg2/pixmaps/emoticons
 
 %files gadu-gadu
 %defattr(644,root,root,755)
