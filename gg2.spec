@@ -188,7 +188,7 @@ Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package sms
 Summary:	SMS Gateway
-Summary(pl):    Bramka SMS
+Summary(pl):	Bramka SMS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
 
