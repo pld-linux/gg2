@@ -30,7 +30,7 @@ BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
 BuildRequires:	openssl-devel >= 0.9.7d
-%{?with_dbus:BuildRequires:	dbus-libs >= 0.22}
+%{?with_dbus:BuildRequires:	dbus-glib-devel >= 0.22}
 %{?with_gtkspell:BuildRequires:	gtkspell-devel}
 %{?with_gtkspell:BuildRequires:	aspell-devel}
 BuildRequires:	pkgconfig
