@@ -5,14 +5,14 @@ Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	%{pre}
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
-Source0:	ftp://ftp.slackware.pl/pub/gg/%{name}-2.0%{pre}.tar.gz
+Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/gg2-2.0%{pre}.tar.gz
 Source1:	%{name}.desktop
-URL:		http://gadu.gnu.pl/
+URL:		http://gadu.sourceforge.net/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.6
@@ -200,7 +200,6 @@ Motywy graficzne dla GUI GnuGadu 2.
 
 %build
 rm -f missing
-gettextize --copy --force
 intltoolize --copy --force
 %{__libtoolize}
 %{__aclocal}
@@ -315,3 +314,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gg2/pixmaps/icons/modern/*.png
 %{_datadir}/gg2/pixmaps/icons/modern/README
 %{_datadir}/gg2/pixmaps/icons/rozgwiazda/*.png
+%{_datadir}/gg2/pixmaps/icons/rozgwiazda/license.txt
