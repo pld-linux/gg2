@@ -8,7 +8,7 @@ Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
 Release:	2.%{_snap}.1
-Epoch:		1
+Epoch:		2
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}-%{_snap}.tar.gz
