@@ -5,19 +5,17 @@
 %bcond_without	esd
 %bcond_without	gtkspell
 #
-%define		_pre	pre8
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	0.%{_pre}.1
+Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
-#Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
-Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	1d44788e6fb7b6c47453e2a0ad104c54
+Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
+# Source0-md5:	1b790ff84c97632fe6535c5b499909a0
 URL:		http://www.gnugadu.org/
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
@@ -26,7 +24,6 @@ BuildRequires:	automake >= 1.7
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
-BuildRequires:	libgadu-devel >= 4:1.4
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.15.1
@@ -335,7 +332,7 @@ Temas para el GUI de GNU Gadu 2.
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
-%setup -q -n %{name}-%{version}%{_pre}
+%setup -q -n %{name}-%{version}
 
 %build
 rm -f missing
