@@ -32,6 +32,7 @@ BuildRequires:	openssl-devel >= 0.9.7d
 %{?with_gtkspell:BuildRequires:	gtkspell-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel   >= 2.0.0
+BuildRequires:  aspell-devel
 Requires:	gg2-ui
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
