@@ -4,19 +4,21 @@
 %bcond_without	perl
 %bcond_without	esd
 %bcond_without	gtkspell
+%bcond_with	dbus
 #
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.2.1
+Version:	2.2.2
 Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://osdn.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
-# Source0-md5:	370ceeb422f7fe9b4a182a6966311af0
+# Source0-md5:	6d141d2de45f7ae12f2d9ec78e6f2b55
 URL:		http://www.gnugadu.org/
+Patch0:		%{name}-dbus-headerfile.patch
 %{?with_arts:BuildRequires:	artsc-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
@@ -28,6 +30,7 @@ BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
 BuildRequires:	openssl-devel >= 0.9.7d
+%{?with_dbus:BuildRequires:	dbus-libs >= 0.22}
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_gtkspell:BuildRequires:	gtkspell-devel}
 %{?with_gtkspell:BuildRequires:	aspell-devel}
@@ -359,6 +362,20 @@ Verifica si hay nuevas versiones de GNU Gadu.
 %description plugin-update -l pl
 Wtyczka sprawdzaj±ca, czy jest dostêpna nowsza wersja GNU Gadu.
 
+%package plugin-dbus
+Summary:	Allow to communicate using D-BUS message bus
+Summary(pl):	Pozwala na komunikacje za pomoc± magistrali D-BUS
+Group:		Applications/Communications
+Provides:	%{name}-update = %{epoch}:%{version}-%{release}
+Obsoletes:	%{name}-update
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+
+%description plugin-dbus
+Allow to communicate using D-BUS interface
+
+%description plugin-dbus -l pl
+Wtyczka pozwala na komunikacje za pomoc± magistrali D-BUS
+
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
 Summary(es):	Temas para el GUI de GNU Gadu 2
@@ -378,6 +395,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gettextize}
@@ -405,6 +423,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 	--with-history-external-viewer \
 	--with-gghist \
 	--with%{!?with_gtkspell:out}-gtkspell \
+	--with%{!?with_dbus:out}-dbus \
 	--%{?with_perl:with}%{!?with_perl:without}-perl \
  	--with-remote
 
@@ -518,6 +537,13 @@ rm -rf $RPM_BUILD_ROOT
 %files plugin-update
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libupdate_plugin.so
+
+%if %{with dbus}
+%files plugin-dbus
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libdbus_plugin.so
+%{_datadir}/dbus-1.0/services/org.freedesktop.im.GG.service
+%endif
 
 %files themes
 %defattr(644,root,root,755)
