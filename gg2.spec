@@ -24,6 +24,7 @@ BuildRequires:	automake >= 1.7
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.4.0
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.16-4
