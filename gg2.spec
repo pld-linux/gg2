@@ -4,8 +4,8 @@
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	0
-Release:	0.%{snap}
+Version:	%{snap}
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
@@ -88,19 +88,19 @@ Sound support with ESD
 Obsluga dzwieku z ESD
 
 
-%package sound-aRts
-Summary:	Sound support with aRts
-Summary(pl):	Obsluga dzwieku z aRts
-Group:		Applications/Communications
-BuildRequires:	arts-devel
-Requires:	arts
-Requires:	%{name} = %{version}
+#%package sound-aRts
+#Summary:	Sound support with aRts
+#Summary(pl):	Obsluga dzwieku z aRts
+#Group:		Applications/Communications
+#BuildRequires:	arts-devel
+#Requires:	arts
+#Requires:	%{name} = %{version}
 
-%description sound-aRts
-Sound support with aRts
+#%description sound-aRts
+#Sound support with aRts
 
-%description sound-aRts -l pl
-Obsluga dzwieku z aRts
+#%description sound-aRts -l pl
+#Obsluga dzwieku z aRts
 
 
 %package xosd
@@ -133,7 +133,7 @@ Obsluga dockletow w roznych menadzerach okien
 
 
 %prep
-%setup -q -n %{name}-%{snam}
+%setup -q -n %{name}
 
 
 %build
@@ -144,13 +144,13 @@ rm -f missing
 %{__autoconf}
 
 %configure \
-	--with-gtk2-gui
-	--with-gadu-gadu
-	--with-tlen
-	--with-xosd
-	--with-docklet
+	--with-gtk2-gui \
+	--with-gadu-gadu \
+	--with-tlen \
+	--with-xosd \
+	--with-docklet \
 	--with-esd
-	--with-arts
+#	--with-arts
 
 %{__make}
 
