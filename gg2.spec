@@ -10,12 +10,13 @@ Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0.3
-Release:	1
+Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.bz2
 # Source0-md5:	e8795ba49b9817a1db5e8628c9c9e30a
+Patch0:		%{name}-jabber_login.patch
 URL:		http://www.gnugadu.org/
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
@@ -26,7 +27,7 @@ BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
-BuildRequires:	loudmouth-devel >= 0.15.1
+BuildRequires:	loudmouth-devel >= 0.16-4
 BuildRequires:	openssl-devel >= 0.9.7d
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_gtkspell:BuildRequires:	gtkspell-devel}
@@ -334,6 +335,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 rm -f missing
