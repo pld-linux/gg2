@@ -237,7 +237,7 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-docklet
 
 %description docklet-system-tray
-Support for Window Managers nofinication areas (GNOME, KDE).
+Support for Window Managers notification areas (GNOME, KDE).
 
 %description docklet-system-tray -l es
 Soporte para áreas de notificación de los Manejantes de Ventanas
@@ -248,6 +248,7 @@ Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package docklet-dockapp
 Summary:	Support for WindowMaker-style dockapp
+Summary(es):	Soporte de dockapp estilo WindowMaker
 Summary(pl):	Obs³uga dokowalnego apletu zgodnego z WindowMakerem
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
@@ -255,6 +256,9 @@ Obsoletes:	%{name}-docklet
 
 %description docklet-dockapp
 Support for WindowMaker-style dockapp.
+
+%description docklet-dockapp -l es
+Suporte de dockapp estilo WindowMaker.
 
 %description docklet-dockapp -l pl
 Obs³uga dokowalnego apletu zgodnego z WindowMakerem.
