@@ -2,8 +2,9 @@
 %bcond_with	arts
 %bcond_without	perl
 
-%define		_snap	20030917
+%define		_snap	20031020
 Summary:	GNU Gadu 2 - free talking
+Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
@@ -12,8 +13,8 @@ Epoch:		2
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}-%{_snap}.tar.gz
-Source0:	%{name}-%{version}-%{_snap}.tar.gz
-# Source0-md5:	8026a52c6fa169a9f86603866870e09a
+Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}-%{_snap}.tar.gz
+# Source0-md5:	2b1540839e84b39688c68d008d0725eb
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 BuildRequires:	perl-devel
@@ -39,12 +40,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Gadu-Gadu, Tlen.pl and others instant messanger client with
 GTK+2 GUI on GNU/GPL.
 
+%description -l es
+Un cliente para Gadu-Gadu, Tlen.pl y otros protocolos con un GUI de
+GTK+2, bajo la licencia GNU/GPL.
+
 %description -l pl
 Klient Gadu-Gadu, Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
 licencji GNU/GPL.
 
 %package devel
 Summary:	Headers for libgg2_core library to develop plugins
+Summary(es):	Cabeceras para la biblioteca libgg2_core para desarrollar plugins
 Summary(pl):	Pliki nag³ówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -54,6 +60,10 @@ Requires:	perl-devel
 %description devel
 This package contains header files for libgg2_core library, needed to
 develop plugins for GNU Gadu 2.
+
+%description devel -l es
+Este paquete contiene los ficheros de cabeceras de la biblioteca
+libgg2_core necesarios para desarrollar plugins para GNU Gadu 2.
 
 %description devel -l pl
 Ten pakiet zawiera pliki nag³ówkowe biblioteki libgg2_core, potrzebne
