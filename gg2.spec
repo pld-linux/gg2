@@ -1,8 +1,9 @@
-
+#
+# Conditional build:
 %bcond_with	arts
 %bcond_without	perl
 %bcond_without	esd
-
+#
 %define		_snap	20031122
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
@@ -17,7 +18,7 @@ Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	2fe054116952b8e7ee63c72845ec88fa
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
-BuildRequires:	perl-devel
+%{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.7}
@@ -29,10 +30,9 @@ BuildRequires:	libgadu-devel >= 4:1.4
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.13.1
+%{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel   >= 2.0.0
-%{?with_arts:BuildRequires:	arts-devel}
-%{?with_perl:BuildRequires:	perl-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -148,7 +148,6 @@ Un plugin para el protocolo Jabber.
 %description jabber -l pl
 Wtyczka protoko³u Jabber.
 
-%if %{with esd}
 %package sound-esd
 Summary:	Sound support with ESD
 Summary(es):	Soporte de sonido a través de ESD
@@ -164,7 +163,6 @@ Soporte de sonido a través de ESD.
 
 %description sound-esd -l pl
 Obs³uga d¼wiêku poprzez ESD.
-%endif
 
 %package sound-oss
 Summary:	OSS sound support
@@ -198,7 +196,6 @@ Soporte de sonido a través de un reproductor externo.
 %description sound-external -l pl
 Obs³uga d¼wiêku przez zewnêtrzny program.
 
-%if %{with arts}
 %package sound-aRts
 Summary:	Sound support with aRts
 Summary(es):	Soporte de sonido a través de aRts
@@ -214,7 +211,6 @@ Soporte de sonido a través de aRts.
 
 %description sound-aRts -l pl
 Obs³uga d¼wiêku poprzez aRts.
-%endif
 
 %package xosd
 Summary:	Support for X On Screen Display
@@ -252,17 +248,16 @@ Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package docklet-dockapp
 Summary:	Support for WindowMaker-style dockapp
-Summary(es):	Soporte para áreas de notificación de los Manejantes de Ventanas
-Summary(pl):	Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien
+Summary(pl):	Obs³uga dokowalnego apletu zgodnego z WindowMakerem
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-docklet
 
 %description docklet-dockapp
-Support for WindowMaker-style dockapp
+Support for WindowMaker-style dockapp.
 
 %description docklet-dockapp -l pl
-Obs³uga dokowalnego apletu zgodnego z WindowMaker
+Obs³uga dokowalnego apletu zgodnego z WindowMakerem.
 
 %package sms
 Summary:	SMS Gateway
@@ -278,7 +273,8 @@ Send SMS to cellular phones via web gateways.
 Manda mensajes SMS a móviles vía puertas del Web.
 
 %description sms -l pl
-Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki WWW.
+Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki
+WWW.
 
 %package remote
 Summary:	Remote access from other applications
@@ -351,12 +347,12 @@ intltoolize --copy --force
  	--with-sms \
  	--with-docklet_system_tray \
 	--with-docklet_dockapp \
-	--%{?with_esd:with}%{?!with_esd:without}-esd \
+	--with%{!?with_esd:out}-esd \
  	--with-oss \
  	--with-external \
  	--with-update \
-	--%{?with_arts:with}%{?!with_arts:without}-arts \
-	--%{?with_perl:enable}%{?!with_perl:disable}-perl \
+	--with%{!?with_arts:out}-arts \
+	--%{?with_perl:enable}%{!?with_perl:disable}-perl \
  	--with-remote
 
 %{__make}
