@@ -16,6 +16,7 @@ License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.bz2
 # Source0-md5:	60505673a9c662e071caf6d1e181f2d6
+Patch0:		%{name}-path.patch
 URL:		http://www.gnugadu.org/
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
@@ -334,6 +335,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch0 -p1
 
 %build
 rm -f missing
