@@ -252,8 +252,8 @@ intltoolize --copy --force
 %{__autoconf}
 
 %configure \
-	--disable-gdb \
-	--disable-debug \
+	%{!?debug:--disable-gdb} \
+	%{!?debug:--disable-debug} \
  	--with-gui \
  	--with-gadu \
  	--with-tlen \
