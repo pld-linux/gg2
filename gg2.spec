@@ -15,7 +15,7 @@ Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://osdn.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
+Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
 # Source0-md5:	5d38e161612307ea2a7a00f9453678e3
 URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
@@ -24,8 +24,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.7}
 BuildRequires:	gettext-devel >= 0.11.0
-BuildRequires:	glib2-devel  >= 2.2.0
-BuildRequires:	gtk+2-devel  >= 2.4.0
+BuildRequires:	glib2-devel >= 2.2.0
+BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
@@ -34,7 +34,7 @@ BuildRequires:	openssl-devel >= 0.9.7d
 %{?with_gtkspell:BuildRequires:	gtkspell-devel}
 %{?with_gtkspell:BuildRequires:	aspell-devel}
 BuildRequires:	pkgconfig
-BuildRequires:	xosd-devel   >= 2.0.0
+BuildRequires:	xosd-devel >= 2.0.0
 %if %{with perl}
 BuildRequires:	perl-devel
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
