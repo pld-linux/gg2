@@ -37,7 +37,7 @@ Requires:	gg2-ui
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Gadu-Gadu, Tlen.pl and others instant messanger client with
+Gadu-Gadu, Tlen.pl and others instant messenger client with
 GTK+2 GUI on GNU/GPL.
 
 %description -l es
