@@ -276,9 +276,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc A* C* N* R* T* contrib doc/*
 %attr(755,root,root) %{_bindir}/gg2
+%attr(755,root,root) %{_libdir}/libgg2_core.so*
 %dir %{_libdir}/gg2
 %{_datadir}/%{name}/sounds
-%{_libdir}/libgg2_core.so*
 
 %files gui-gtk+2
 %defattr(644,root,root,755)
@@ -292,6 +292,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gg2.desktop
 
 %files devel
+%defattr(644,root,root,755)
 %{_includedir}/gg2_core.h
 %{_pkgconfigdir}/gg2_core.pc
 
