@@ -40,6 +40,8 @@ BuildRequires:	perl-devel
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 %endif
 Requires:	gg2-ui
+Obsoletes:	gg-common
+Obsoletes:	gg-kde
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -83,6 +85,7 @@ Group:		Applications/Communications
 Provides:	gg2-ui
 Provides:	%{name}-gui-gtk+2 = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-gui-gtk+2
+Obsoletes:	gg-gnome
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-gui-gtk+2
@@ -284,6 +287,8 @@ Provides:	%{name}-docklet-dockapp = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-docklet-dockapp
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-docklet
+Obsoletes:	gg-gnome-applet
+Obsoletes:	gg-wm-applet
 
 %description plugin-docklet-dockapp
 Support for WindowMaker-style dockapp.
