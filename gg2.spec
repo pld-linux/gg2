@@ -10,13 +10,13 @@ Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.2.4
-Release:	2
+Version:	2.2.5
+Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
-# Source0-md5:	3f9c87ac78bb23b4cd07a4b6eb380cf8
+# Source0-md5:	41e79ac1c4f5d4cca5ac0b68aeac5830
 URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
 %{?with_arts:BuildRequires:	artsc-devel}
@@ -318,24 +318,24 @@ Manda mensajes SMS a móviles vía puertas del Web.
 Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki
 WWW.
 
-%package plugin-remote
-Summary:	Remote access from other applications
-Summary(es):	Acceso remoto desde otras aplicaciones
-Summary(pl):	Dostêp do programu z innych aplikacji
-Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+#%package plugin-remote
+#Summary:	Remote access from other applications
+#Summary(es):	Acceso remoto desde otras aplicaciones
+#Summary(pl):	Dostêp do programu z innych aplikacji
+#Group:		Applications/Communications
+#Requires:	%{name} = %{epoch}:%{version}-%{release}
 #Provides:	gg2-ui
-Provides:	gg2-remote = %{epoch}:%{version}-%{release}
-Obsoletes:	gg2-remote
+#Provides:	gg2-remote = %{epoch}:%{version}-%{release}
+#Obsoletes:	gg2-remote
 
-%description plugin-remote
-Make possible exchange data with other applications.
+#%description plugin-remote
+#Make possible exchange data with other applications.
 
-%description plugin-remote -l es
-Permite intercambiar los datos con otras aplicaciones.
+#%description plugin-remote -l es
+#Permite intercambiar los datos con otras aplicaciones.
 
-%description plugin-remote -l pl
-Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
+#%description plugin-remote -l pl
+#Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 
 %package plugin-history-external
 Summary:	Allow to view GNU Gadu chat history
@@ -456,8 +456,8 @@ Motywy graficzne dla GUI GNU Gadu 2.
 	--with%{!?with_gtkspell:out}-gtkspell \
 	--with%{!?with_dbus:out}-dbus \
 	%{?with_dbus:--with-dbus-dir=%{_datadir}/dbus-1/services/} \
-	--%{?with_perl:with}%{!?with_perl:without}-perl \
- 	--with-remote
+	--%{?with_perl:with}%{!?with_perl:without}-perl 
+# 	--with-remote
 
 %{__make}
 
@@ -557,9 +557,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libsms_plugin.so
 
-%files plugin-remote
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/gg2/libremote_plugin.so
+#%files plugin-remote
+#%defattr(644,root,root,755)
+#%attr(755,root,root) %{_libdir}/gg2/libremote_plugin.so
 
 %files plugin-history-external
 %defattr(644,root,root,755)
