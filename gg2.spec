@@ -9,13 +9,13 @@ Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.0.3
-Release:	2
+Version:	2.0.4
+Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8795ba49b9817a1db5e8628c9c9e30a
+# Source0-md5:	4b523493d4f66f05a9f6c3c47df8353f
 Patch0:		%{name}-jabber_login.patch
 URL:		http://www.gnugadu.org/
 %{?with_arts:BuildRequires:	arts-devel}
@@ -298,8 +298,23 @@ Make possible exchange data with other applications.
 %description remote -l es
 Permite intercambiar los datos con otras aplicaciones.
 
+
 %description remote -l pl
 Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
+
+
+%package history-external
+Summary:	Allow to view GNU Gadu chat history
+Summary(pl):	Pozwala przegl±daæ historiê rozmów GNU Gadu.
+Group:		Applications/Communications
+Requires:	gtk+2
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+
+%description history-external
+Allow to view GNU Gadu chat history
+
+%description history-external -l pl
+Pozwala przegl±daæ historiê rozmów GNU Gadu.
 
 %package update
 Summary:	Check for new GNU Gadu newer version
@@ -361,6 +376,8 @@ rm -f missing
  	--with-oss \
  	--with-external \
  	--with-update \
+	--with-history-external-viewer \
+	--with-gghist \
 	--with%{!?with_arts:out}-arts \
 	--with%{!?with_gtkspell:out}-gtkspell \
 	--%{?with_perl:with}%{!?with_perl:without}-perl \
@@ -467,6 +484,11 @@ rm -rf $RPM_BUILD_ROOT
 %files remote
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libremote_plugin.so
+
+%files history-external
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/gghist
+%attr(755,root,root) %{_libdir}/gg2/libhistory_external_plugin.so
 
 %files update
 %defattr(644,root,root,755)
