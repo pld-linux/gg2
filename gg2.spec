@@ -10,7 +10,7 @@ Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	0.%{_pre}.1
+Release:	0.%{_pre}.2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
@@ -372,7 +372,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-install gg2.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cat gg2.desktop | sed -e 's/TryExec/Exec/' > $RPM_BUILD_ROOT%{_desktopdir}/gg2.desktop
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
 install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
