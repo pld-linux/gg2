@@ -1,0 +1,11 @@
+--- gg2-2.0-20031117/configure.in.orig	2003-11-17 22:50:36.000000000 +0100
++++ gg2-2.0-20031117/configure.in	2003-11-17 22:50:49.000000000 +0100
+@@ -153,7 +153,7 @@
+     if test x$enableval = xyes; then
+ 	want_perl=yes
+     else
+-	if text "x$enableval" = xno; then
++	if test "x$enableval" = xno; then
+ 	    want_perl=no
+ 	else
+ 	    want_perl=yes
