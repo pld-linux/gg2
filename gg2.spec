@@ -14,7 +14,7 @@ Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.bz2
+Source0:	http://osdn.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.bz2
 # Source0-md5:	4b523493d4f66f05a9f6c3c47df8353f
 Patch0:		%{name}-jabber_login.patch
 URL:		http://www.gnugadu.org/
