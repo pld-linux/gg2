@@ -1,5 +1,5 @@
 
-%define		snap 20021123
+%define		snap 20021124
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -40,6 +40,20 @@ GTK+2 GUI plugin
 
 %description gui-gtk+2 -l pl
 GTK+2 GUI plugin
+
+
+
+%package emoticons
+Summary:	Emoticons
+Summary(pl):	Emotikony
+Group:          Applications/Communications
+Requires:       %{name} = %{version}
+
+%description emoticons
+Emotions icons and description files
+
+%description -l pl
+Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym
 
 
 
@@ -170,12 +184,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gg2
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/*xpm
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/*png
 
 %files gui-gtk+2
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_datadir}/gg2/libGUI_plugin.so
+%attr(755,root,root) %{_datadir}/gg2/pixmaps/*xpm
+%attr(755,root,root) %{_datadir}/gg2/pixmaps/*png
+
+%files emoticons
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons/*
 
 %files gadu-gadu
