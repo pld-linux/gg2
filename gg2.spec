@@ -48,8 +48,8 @@ Wtyczka z GUI w GTK+2 do GNU Gadu 2.
 %package emoticons
 Summary:	Emoticons
 Summary(pl):	Emotikony
-Group:          Applications/Communications
-Requires:       %{name} = %{version}
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
 
 %description emoticons
 Emotions icons and description files.
@@ -94,10 +94,10 @@ Sound support with ESD.
 Obs³uga d¼wiêku poprzez ESD.
 
 %package sound-oss
-Summary:        OSS sound support
-Summary(pl):    Obs³uga d¼wiêku OSS
-Group:          Applications/Communications
-Requires:       %{name} = %{version}
+Summary:	OSS sound support
+Summary(pl):	Obs³uga d¼wiêku OSS
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
 
 %description sound-oss
 OSS sound support.
