@@ -1,5 +1,5 @@
 
-%define		snap 20021124
+%define		snap 20021127
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -95,6 +95,19 @@ Sound support with ESD.
 %description sound-esd -l pl
 Obs³uga d¼wiêku z ESD.
 
+%package sound-oss
+Summary:        Sound support with OSS
+Summary(pl):    Obsluga dzwieku z OSS
+Group:          Applications/Communications
+Requires:       %{name} = %{version}
+
+%description sound-oss
+Sound support with OSS
+
+%description sound-oss -l pl
+Obsluga dzwieku z OSS
+
+
 #%package sound-aRts
 #Summary:	Sound support with aRts
 #Summary(pl):	Obs³uga d¼wiêku z aRts
@@ -155,7 +168,8 @@ rm -f missing
 	--with-tlen \
 	--with-xosd \
 	--with-docklet \
-	--with-esd
+	--with-esd \
+	--with-oss
 #	--with-arts
 
 %{__make}
@@ -194,6 +208,10 @@ rm -rf $RPM_BUILD_ROOT
 %files sound-esd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_datadir}/gg2/libsound_esd_plugin.so
+
+%files sound-oss
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_datadir}/gg2/libsound_oss_plugin.so
 
 %files xosd
 %defattr(644,root,root,755)
