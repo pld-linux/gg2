@@ -10,7 +10,7 @@ Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
-Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/gg2-2.0%{pre}.tar.gz
+Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/gg2-2.0%{pre}.tar.bz2
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 #BuildRequires:	arts-devel
