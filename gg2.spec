@@ -21,7 +21,7 @@ URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
 %{?with_arts:BuildRequires:	artsc-devel}
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.7}
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel >= 2.2.0
