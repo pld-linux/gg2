@@ -1,5 +1,5 @@
 
-%define		snap 20030104
+%define		snap 20030113
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -9,7 +9,7 @@ Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.bz2
+Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
@@ -200,6 +200,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gg2
 %dir %{_libdir}/gg2
+%{_datadir}/%{name}/sounds
 
 %files gui-gtk+2
 %defattr(644,root,root,755)
