@@ -1,5 +1,5 @@
 
-%define		snap snap
+%define		snap pre0
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -9,7 +9,8 @@ Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
+#Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
+Source0:	ftp://ftp.slackware.pl/gg/%{name}-2.0%{snap}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
@@ -19,7 +20,7 @@ BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	iksemel-devel >= 0.0.1
 BuildRequires:	glib2-devel  >= 2.1.0
 BuildRequires:	gtk+2-devel  >= 2.1.0
-BuildRequires:	libgadu-devel >= 20021123
+BuildRequires:	libgadu-devel >= 20030101
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	intltool
@@ -169,7 +170,7 @@ Themes for GnuGadu 2 GUI
 Tematy graficzne dla GUI GnuGadu 2
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name}-2.0%{snap}
 
 %build
 rm -f missing
@@ -265,3 +266,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %dir %{_datadir}/gg2/themes
 %{_datadir}/gg2/themes/*theme
+%dir %{_datadir}/gg2/pixmaps/icons
+%dir %{_datadir}/gg2/pixmaps/icons/bubble
+%dir %{_datadir}/gg2/pixmaps/icons/classic
+%dir %{_datadir}/gg2/pixmaps/icons/modern
+%{_datadir}/gg2/pixmaps/icons/bubble/*.png
+%{_datadir}/gg2/pixmaps/icons/classic/*.png
+%{_datadir}/gg2/pixmaps/icons/modern/*.png
