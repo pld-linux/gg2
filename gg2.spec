@@ -15,7 +15,7 @@ Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
 # Source0-md5:	3f9c87ac78bb23b4cd07a4b6eb380cf8
 URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
