@@ -205,7 +205,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/applications
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}/
-install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/online.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
+install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/online.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %find_lang %{name} --all-name --with-gnome
 
