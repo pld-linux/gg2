@@ -41,7 +41,7 @@ licencji GNU/GPL.
 Summary:	Headers for libgg2_core library to develop plugins
 Summary(pl):	Pliki nag³ówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	glib2-devel
 Requires:	perl-devel
 
@@ -57,7 +57,7 @@ do rozwijania wtyczek do GNU Gadu 2.
 Summary:	GTK+2 GUI plugin
 Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description gui-gtk+2
 GTK+2 GUI plugin for GNU Gadu 2.
@@ -69,7 +69,7 @@ Wtyczka z GUI w GTK+2 do GNU Gadu 2.
 Summary:	Emoticons
 Summary(pl):	Emotikony
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description emoticons
 Emotions icons and description files.
@@ -81,7 +81,7 @@ Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 Summary:	Gadu-Gadu plugin
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description gadu-gadu
 Gadu-Gadu protocol plugin.
@@ -93,7 +93,7 @@ Wtyczka protoko³u Gadu-Gadu.
 Summary:	Tlen.pl plugin
 Summary(pl):	Wtyczka protoko³u Tlen.pl
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description tlen
 Tlen.pl protocol plugin.
@@ -105,7 +105,7 @@ Wtyczka protoko³u Tlen.pl.
 Summary:	Jabber.org plugin
 Summary(pl):	Wtyczka protoko³u Jabber
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description jabber
 Jabber protocol plugin.
@@ -117,7 +117,7 @@ Wtyczka protoko³u Jabber.
 Summary:	Sound support with ESD
 Summary(pl):	Obs³uga d¼wiêku poprzez ESD
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description sound-esd
 Sound support with ESD.
@@ -129,7 +129,7 @@ Obs³uga d¼wiêku poprzez ESD.
 Summary:	OSS sound support
 Summary(pl):	Obs³uga d¼wiêku OSS
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description sound-oss
 OSS sound support.
@@ -141,7 +141,7 @@ Obs³uga d¼wiêku OSS.
 Summary:	Sound support with external player
 Summary(pl):	Obs³uga d¼wiêku przez zewnêtrzny program
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description sound-external
 Sound support with external player.
@@ -165,7 +165,7 @@ Obs³uga d¼wiêku przez zewnêtrzny program.
 Summary:	Support for X On Screen Display
 Summary(pl):	Wy¶wietlanie komunikatów na ekranie X
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description xosd
 Support for X On Screen Display.
@@ -177,7 +177,7 @@ Wy¶wietlanie komunikatów na ekranie X.
 Summary:	Support for Window Managers docklets
 Summary(pl):	Obs³uga dokletów w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description docklet
 Support for Window Managers docklets (GNOME, KDE).
@@ -189,7 +189,7 @@ Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 Summary:        SMS Gateway
 Summary(pl):    Bramka SMS
 Group:          Applications/Communications
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 
 %description sms
 Send SMS to cellular phones via web gateways.
@@ -201,7 +201,7 @@ Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki WWW.
 Summary:        Remote access from other applications
 Summary(pl):    Dostêp do programu z innych aplikacji
 Group:          Applications/Communications
-Requires:       %{name} = %{version} 
+Requires:       %{name} = %{epoch}:%{version} 
 
 %description remote
 Make possible exchange data with other applications.
@@ -213,7 +213,7 @@ Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 Summary:	Themes for GNU Gadu 2 GUI
 Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
-Requires:       %{name} = %{version}
+Requires:       %{name} = %{epoch}:%{version}
 Requires:	%{name}-gui-gtk+2
 
 %description themes
