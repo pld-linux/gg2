@@ -1,16 +1,16 @@
 
-%define		pre pre2
+%define		_pre	pre2
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	%{pre}
-Release:	1
+Version:	2.0
+Release:	0.%{_pre}.1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
-Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/gg2-2.0%{pre}.tar.bz2
+Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}%{_pre}.tar.bz2
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 #BuildRequires:	arts-devel
@@ -208,7 +208,7 @@ Themes for GnuGadu 2 GUI.
 Motywy graficzne dla GUI GnuGadu 2.
 
 %prep
-%setup -q -n %{name}-2.0%{pre}
+%setup -q -n %{name}-%{version}%{_pre}
 
 %build
 rm -f missing
@@ -255,8 +255,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%doc $RPM_BUILD_ROOT%{_docdir}/gg2-2.0pre2/*
+%doc A* C* N* R* T* contrib doc/*
 %attr(755,root,root) %{_bindir}/gg2
 %dir %{_libdir}/gg2
 %{_datadir}/%{name}/sounds
