@@ -1,13 +1,14 @@
 
+%define		_pre	pre3
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.0pre3
-Release:	1
+Version:	2.0
+Release:	1.%{_pre}.1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}%{_pre}.tar.gz
 # Source0-md5:	49c52cec6869c9ed1b3c015f37401879
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
@@ -223,7 +224,7 @@ Themes for GNU Gadu 2 GUI.
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}%{_pre}
 
 %build
 rm -f missing
