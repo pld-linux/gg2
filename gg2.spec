@@ -7,7 +7,7 @@ Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
-Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
 # Source0-md5:	49c52cec6869c9ed1b3c015f37401879
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
