@@ -1,5 +1,5 @@
 #
-# Conditional build:
+# Conditional build: 
 %bcond_with	arts
 %bcond_without	perl
 %bcond_without	esd
