@@ -20,6 +20,7 @@ BuildRequires:	gtk+2-devel  >= 2.0.1
 BuildRequires:	libgadu-devel >= 20021123
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
+BuildRequires:	intltool
 BuildRequires:	xosd-devel   >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
