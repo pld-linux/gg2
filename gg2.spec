@@ -3,21 +3,19 @@
 %bcond_without	perl
 %bcond_without	esd
 
-%define		_snap	20031117
+%define		_snap	20031122
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	2.%{_snap}.2
+Release:	2.%{_snap}.1
 Epoch:		2
 License:	GPL v2+
 Group:		Applications/Communications
-#Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}-%{_snap}.tar.gz
-Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}-%{_snap}.tar.gz
-# Source0-md5:	c105e95d740323feb14d726f07523bd1
+Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
+# Source0-md5:	2fe054116952b8e7ee63c72845ec88fa
 Source1:	%{name}.desktop
-Patch0:		%{name}-typo.patch
 URL:		http://www.gadu.gnu.pl/
 BuildRequires:	perl-devel
 BuildRequires:	autoconf
@@ -54,7 +52,7 @@ Summary:	Headers for libgg2_core library to develop plugins
 Summary(es):	Cabeceras para la biblioteca libgg2_core para desarrollar plugins
 Summary(pl):	Pliki nag³ówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel
 Requires:	perl-devel
 
@@ -75,7 +73,7 @@ Summary:	GTK+2 GUI plugin
 Summary(es):	Plugin de GUI en GTK+2
 Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description gui-gtk+2
 GTK+2 GUI plugin for GNU Gadu 2.
@@ -91,7 +89,7 @@ Summary:	Emoticons
 Summary(es):	Emoticons
 Summary(pl):	Emotikony
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description emoticons
 Emotions icons and description files.
@@ -107,7 +105,7 @@ Summary:	Gadu-Gadu plugin
 Summary(es):	Plugin de Gadu-Gadu
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description gadu-gadu
 Gadu-Gadu protocol plugin.
@@ -123,7 +121,7 @@ Summary:	Tlen.pl plugin
 Summary(es):	Plugin de Tlen.pl
 Summary(pl):	Wtyczka protoko³u Tlen.pl
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description tlen
 Tlen.pl protocol plugin.
@@ -139,7 +137,7 @@ Summary:	Jabber.org plugin
 Summary(es):	Plugin de Jabber.org
 Summary(pl):	Wtyczka protoko³u Jabber
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description jabber
 Jabber protocol plugin.
@@ -156,7 +154,7 @@ Summary:	Sound support with ESD
 Summary(es):	Soporte de sonido a través de ESD
 Summary(pl):	Obs³uga d¼wiêku poprzez ESD
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description sound-esd
 Sound support with ESD.
@@ -173,7 +171,7 @@ Summary:	OSS sound support
 Summary(es):	Soporte de sonido a través de OSS
 Summary(pl):	Obs³uga d¼wiêku OSS
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description sound-oss
 OSS sound support.
@@ -189,7 +187,7 @@ Summary:	Sound support with external player
 Summary(es):	Soporte de sonido vía un reproductor externo
 Summary(pl):	Obs³uga d¼wiêku przez zewnêtrzny program
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description sound-external
 Sound support with external player.
@@ -223,7 +221,7 @@ Summary:	Support for X On Screen Display
 Summary(es):	Soporte para plasmar mensajes sobre el fondo de X
 Summary(pl):	Wy¶wietlanie komunikatów na ekranie X
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description xosd
 Support for X On Screen Display.
@@ -239,7 +237,7 @@ Summary:	Support for Window Managers notification areas
 Summary(es):	Soporte para áreas de notificación de los Manejantes de Ventanas
 Summary(pl):	Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-docklet
 
 %description docklet-system-tray
@@ -252,12 +250,26 @@ Soporte para áreas de notificación de los Manejantes de Ventanas
 %description docklet-system-tray -l pl
 Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien (GNOME, KDE).
 
+%package docklet-dockapp
+Summary:	Support for WindowMaker-style dockapp
+Summary(es):	Soporte para áreas de notificación de los Manejantes de Ventanas
+Summary(pl):	Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien
+Group:		Applications/Communications
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Obsoletes:	%{name}-docklet
+
+%description docklet-dockapp
+Support for WindowMaker-style dockapp
+
+%description docklet-dockapp -l pl
+Obs³uga dokowalnego apletu zgodnego z WindowMaker
+
 %package sms
 Summary:	SMS Gateway
 Summary(es):	Puerta SMS
 Summary(pl):	Bramka SMS
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description sms
 Send SMS to cellular phones via web gateways.
@@ -273,7 +285,7 @@ Summary:	Remote access from other applications
 Summary(es):	Acceso remoto desde otras aplicaciones
 Summary(pl):	Dostêp do programu z innych aplikacji
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description remote
 Make possible exchange data with other applications.
@@ -289,7 +301,7 @@ Summary:	Check for new GNU Gadu newer version
 Summary(es):	Verifica si hay versiones nuevas de GNU Gadu
 Summary(pl):	Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description update
 Check for new GNU Gadu newer version.
@@ -305,7 +317,7 @@ Summary:	Themes for GNU Gadu 2 GUI
 Summary(es):	Temas para el GUI de GNU Gadu 2
 Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gui-gtk+2
 
 %description themes
@@ -318,8 +330,7 @@ Temas para el GUI de GNU Gadu 2.
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_snap}
-%patch0 -p1
+%setup -q -n %{name}-%{_snap}
 
 %build
 rm -f missing
@@ -339,6 +350,7 @@ intltoolize --copy --force
  	--with-xosd \
  	--with-sms \
  	--with-docklet_system_tray \
+	--with-docklet_dockapp \
 	--%{?with_esd:with}%{?!with_esd:without}-esd \
  	--with-oss \
  	--with-external \
@@ -439,6 +451,10 @@ rm -rf $RPM_BUILD_ROOT
 %files docklet-system-tray
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libdocklet_system_tray_plugin.so
+
+%files docklet-dockapp
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libdocklet_dockapp_plugin.so
 
 %files sms
 %defattr(644,root,root,755)
