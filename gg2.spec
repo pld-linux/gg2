@@ -10,7 +10,7 @@ Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0.6
-Release:	1
+Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
@@ -204,7 +204,7 @@ Summary:	Sound support with aRts
 Summary(es):	Soporte de sonido a través de aRts
 Summary(pl):	Obs³uga d¼wiêku poprzez aRts
 Group:		Applications/Communications
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description sound-aRts
 Sound support with aRts.
