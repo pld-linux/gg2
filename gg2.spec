@@ -1,25 +1,25 @@
 
-%define		snap pre0
+%define		pre pre1
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	%{snap}
+Version:	%{pre}
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
-Source0:	ftp://ftp.slackware.pl/pub/gg/%{name}-2.0%{snap}.tar.gz
+Source0:	ftp://ftp.slackware.pl/pub/gg/%{name}-2.0%{pre}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	automake >= 1.6
 BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	iksemel-devel >= 0.0.1
-BuildRequires:	glib2-devel  >= 2.1.0
-BuildRequires:	gtk+2-devel  >= 2.1.0
+BuildRequires:	glib2-devel  >= 2.2.0
+BuildRequires:	gtk+2-devel  >= 2.2.0
 BuildRequires:	libgadu-devel >= 20030211
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
@@ -157,6 +157,33 @@ Support for Window Managers docklets (GNOME, KDE).
 %description docklet -l pl
 Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 
+
+%package sms
+Summary:        SMS Gateway
+Summary(pl):    Bramka SMS
+Group:          Applications/Communications
+Requires:       %{name} = %{version}
+
+%description sms
+Send SMS to cellurar phones via web gateways
+
+%description sms -l pl
+Wysyla SMS'u na telefony komórkowe przez bramki internetowe
+
+
+%package remote
+Summary:        Remote access from other applications
+Summary(pl):    Dostep do programu z innych aplikacji
+Group:          Applications/Communications
+Requires:       %{name} = %{version} 
+
+%description remote
+Make possible exchange data with other applications.
+
+%description remote -l pl
+Daje mozliwosc wymiany informacji z innymi aplikacjami.
+
+
 %package themes
 Summary:	Themes for GnuGadu 2 GUI
 Summary(pl):	Motywy graficzne dla GUI GnuGadu 2
@@ -171,7 +198,7 @@ Themes for GnuGadu 2 GUI.
 Motywy graficzne dla GUI GnuGadu 2.
 
 %prep
-%setup -q -n %{name}-2.0%{snap}
+%setup -q -n %{name}-2.0%{pre}
 
 %build
 rm -f missing
@@ -192,7 +219,9 @@ intltoolize --copy --force
 	--with-xosd \
 	--with-docklet \
 	--with-esd \
-	--with-oss
+	--with-oss \
+	--with-sms \
+	--with-remote
 #	--with-arts
 
 %{__make}
@@ -263,6 +292,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libdocklet_plugin.so
 
+%files sms
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libsms_plugin.so
+
+%files remote
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libremote_plugin.so
+
 %files themes
 %defattr(644,root,root,755)
 %dir %{_datadir}/gg2/themes
@@ -271,6 +308,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gg2/pixmaps/icons/bubble
 %dir %{_datadir}/gg2/pixmaps/icons/classic
 %dir %{_datadir}/gg2/pixmaps/icons/modern
+%dir %{_datadir}/gg2/pixmaps/icons/rozgwiazda
 %{_datadir}/gg2/pixmaps/icons/bubble/*.png
+%{_datadir}/gg2/pixmaps/icons/bubble/README
 %{_datadir}/gg2/pixmaps/icons/classic/*.png
+%{_datadir}/gg2/pixmaps/icons/classic/README
 %{_datadir}/gg2/pixmaps/icons/modern/*.png
+%{_datadir}/gg2/pixmaps/icons/modern/README
+%{_datadir}/gg2/pixmaps/icons/rozgwiazda/*.png
