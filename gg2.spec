@@ -26,7 +26,7 @@ BuildRequires:	libtool
 BuildRequires:	intltool
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	xosd-devel   >= 2.0.0
-BuildRequires:  pkgconfig
+BuildRequires:	pkgconfig
 BuildRequires:	fontconfig-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -187,10 +187,10 @@ Support for Window Managers docklets (GNOME, KDE).
 Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package sms
-Summary:        SMS Gateway
+Summary:	SMS Gateway
 Summary(pl):    Bramka SMS
-Group:          Applications/Communications
-Requires:       %{name} = %{epoch}:%{version}
+Group:		Applications/Communications
+Requires:	%{name} = %{epoch}:%{version}
 
 %description sms
 Send SMS to cellular phones via web gateways.
@@ -199,10 +199,10 @@ Send SMS to cellular phones via web gateways.
 Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki WWW.
 
 %package remote
-Summary:        Remote access from other applications
-Summary(pl):    Dostêp do programu z innych aplikacji
-Group:          Applications/Communications
-Requires:       %{name} = %{epoch}:%{version} 
+Summary:	Remote access from other applications
+Summary(pl):	Dostêp do programu z innych aplikacji
+Group:		Applications/Communications
+Requires:	%{name} = %{epoch}:%{version} 
 
 %description remote
 Make possible exchange data with other applications.
@@ -214,7 +214,7 @@ Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 Summary:	Themes for GNU Gadu 2 GUI
 Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
-Requires:       %{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	%{name}-gui-gtk+2
 
 %description themes
