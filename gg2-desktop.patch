@@ -1,0 +1,10 @@
+diff -urN gg2-2.2.2.orig/gg2.desktop gg2-2.2.2/gg2.desktop
+--- gg2-2.2.2.orig/gg2.desktop	2004-11-17 12:30:42.673677880 +0100
++++ gg2-2.2.2/gg2.desktop	2004-11-17 12:32:14.182766384 +0100
+@@ -9,5 +9,5 @@
+ Icon=gg2.png
+ Terminal=false
+ Type=Application
+-Categories=Application;Network;InstantMessaging;GTK;
++Categories=GTK;Network;InstantMessaging;
+ # vi: encoding=utf-8
