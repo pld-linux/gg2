@@ -157,7 +157,6 @@ Support for Window Managers docklets (GNOME, KDE).
 %description docklet -l pl
 Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 
-
 %package sms
 Summary:        SMS Gateway
 Summary(pl):    Bramka SMS
@@ -165,15 +164,14 @@ Group:          Applications/Communications
 Requires:       %{name} = %{version}
 
 %description sms
-Send SMS to cellurar phones via web gateways
+Send SMS to cellurar phones via web gateways.
 
 %description sms -l pl
-Wysyla SMS'u na telefony komórkowe przez bramki internetowe
-
+Wtyczka wysy³aj±ca SMS-y na telefony komórkowe przez bramki WWW.
 
 %package remote
 Summary:        Remote access from other applications
-Summary(pl):    Dostep do programu z innych aplikacji
+Summary(pl):    Dostêp do programu z innych aplikacji
 Group:          Applications/Communications
 Requires:       %{name} = %{version} 
 
@@ -181,8 +179,7 @@ Requires:       %{name} = %{version}
 Make possible exchange data with other applications.
 
 %description remote -l pl
-Daje mozliwosc wymiany informacji z innymi aplikacjami.
-
+Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 
 %package themes
 Summary:	Themes for GnuGadu 2 GUI
@@ -262,6 +259,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/applications/gg2.desktop
 
 %files emoticons
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons
 
 %files gadu-gadu
