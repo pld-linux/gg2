@@ -7,4 +7,5 @@ Icon=gg2.png
 Terminal=0
 Type=Application
 Categories=GTK;Network;InstantMessaging
+Encoding=UTF-8
 # vi: encoding=utf-8
