@@ -3,22 +3,22 @@
 %bcond_with	arts
 %bcond_without	perl
 %bcond_without	esd
+%bcond_without	gtkspell
 #
-%define		_pre	pre7
+%define		_pre	pre8
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	0.%{_pre}.2
+Release:	0.%{_pre}.1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
 Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	855526fd075bfbd739a8bc823b2aa0ac
+# Source0-md5:	1d44788e6fb7b6c47453e2a0ad104c54
 URL:		http://www.gnugadu.org/
-Patch0:		%{name}-emoticons-fixup_and_tlen.patch
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
@@ -32,6 +32,7 @@ BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.15.1
 BuildRequires:	openssl-devel
 %{?with_perl:BuildRequires:	perl-devel}
+%{?with_gtkspell:BuildRequires:	gtkspell-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel   >= 2.0.0
 Requires:	gg2-ui
@@ -335,7 +336,6 @@ Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
-%patch0 -p1
 
 %build
 rm -f missing
@@ -361,7 +361,8 @@ rm -f missing
  	--with-external \
  	--with-update \
 	--with%{!?with_arts:out}-arts \
-	--%{?with_perl:enable}%{!?with_perl:disable}-perl \
+	--with%{!?with_gtkspell:out}-gtkspell \
+	--%{?with_perl:with}%{!?with_perl:without}-perl \
  	--with-remote
 
 %{__make}
