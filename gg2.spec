@@ -334,7 +334,7 @@ Temas para el GUI de GNU Gadu 2.
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 %build
