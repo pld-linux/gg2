@@ -141,6 +141,7 @@ Summary(es):	Plugin de Jabber.org
 Summary(pl):	Wtyczka protoko³u Jabber
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	loudmouth >= 0.16-4
 
 %description jabber
 Jabber protocol plugin.
