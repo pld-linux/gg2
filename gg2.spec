@@ -54,7 +54,7 @@ Requires:       %{name} = %{version}
 %description emoticons
 Emotions icons and description files.
 
-%description -l pl
+%description emoticons -l pl
 Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 
 %package gadu-gadu
@@ -66,7 +66,7 @@ Requires:	%{name} = %{version}
 %description gadu-gadu
 Gadu-Gadu protocol plugin.
 
-%description -l pl
+%description gadu-gadu -l pl
 Wtyczka protoko³u Gadu-Gadu.
 
 %package tlen
@@ -183,10 +183,11 @@ rm -rf $RPM_BUILD_ROOT
 %files gui-gtk+2
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libGUI_plugin.so
+%dir %{_datadir}/gg2
 %dir %{_datadir}/gg2/pixmaps
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/*xpm
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/*png
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/*gif
+%{_datadir}/gg2/pixmaps/*xpm
+%{_datadir}/gg2/pixmaps/*png
+%{_datadir}/gg2/pixmaps/*gif
 
 %files emoticons
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons
