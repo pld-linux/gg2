@@ -1,8 +1,5 @@
 
-# TODO:
-# plugins MUST go to %{_libdir}!!!
-
-%define		snap 20021127
+%define		snap 20021130
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -17,13 +14,13 @@ URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	esound-devel
-BuildRequires:	glib2-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	libgadu-devel
+BuildRequires:	esound-devel >= 0.2.7
+BuildRequires:	glib2-devel  >= 2.0.1
+BuildRequires:	gtk+2-devel  >= 2.0.1
+BuildRequires:	libgadu-devel >= 20021123
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
-BuildRequires:	xosd-devel
+BuildRequires:	xosd-devel   >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -181,34 +178,35 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gg2
-%dir %{_datadir}/gg2
+%dir %{_libdir}/gg2
 
 %files gui-gtk+2
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/libGUI_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libGUI_plugin.so
 %dir %{_datadir}/gg2/pixmaps
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/*xpm
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/*png
+%attr(755,root,root) %{_datadir}/gg2/pixmaps/*gif
 
 %files emoticons
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons
 
 %files gadu-gadu
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/libgadu_gadu_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libgadu_gadu_plugin.so
 
 %files tlen
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/libtlen_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libtlen_plugin.so
 
 %files sound-esd
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/libsound_esd_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libsound_esd_plugin.so
 
 %files sound-oss
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/libsound_oss_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libsound_oss_plugin.so
 
 %files xosd
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_datadir}/gg2/libxosd_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libxosd_plugin.so
