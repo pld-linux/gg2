@@ -323,14 +323,12 @@ Make possible exchange data with other applications.
 %description plugin-remote -l es
 Permite intercambiar los datos con otras aplicaciones.
 
-
 %description plugin-remote -l pl
 Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 
-
 %package plugin-history-external
 Summary:	Allow to view GNU Gadu chat history
-Summary(pl):	Pozwala przegl±daæ historiê rozmów GNU Gadu.
+Summary(pl):	Przegl±danie historii rozmów GNU Gadu
 Group:		Applications/Communications
 Provides:	%{name}-history-external = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-history-external
@@ -338,15 +336,15 @@ Requires:	gtk+2
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-history-external
-Allow to view GNU Gadu chat history
+Allow to view GNU Gadu chat history.
 
 %description plugin-history-external -l pl
-Pozwala przegl±daæ historiê rozmów GNU Gadu.
+Wtyczka pozwalaj±ca przegl±daæ historiê rozmów GNU Gadu.
 
 %package plugin-update
 Summary:	Check for new GNU Gadu newer version
 Summary(es):	Verifica si hay versiones nuevas de GNU Gadu
-Summary(pl):	Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
+Summary(pl):	Sprawdzanie dostêpno¶ci nowszej wersji GNU Gadu
 Group:		Applications/Communications
 Provides:	%{name}-update = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-update
@@ -359,7 +357,7 @@ Check for new GNU Gadu newer version.
 Verifica si hay nuevas versiones de GNU Gadu.
 
 %description plugin-update -l pl
-Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
+Wtyczka sprawdzaj±ca, czy jest dostêpna nowsza wersja GNU Gadu.
 
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
@@ -382,7 +380,6 @@ Motywy graficzne dla GUI GNU Gadu 2.
 %setup -q
 
 %build
-rm -f missing
 %{__gettextize}
 %{__libtoolize}
 %{__aclocal} -I src/plugins/gadu_gadu/libgadu/m4
