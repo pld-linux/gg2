@@ -21,18 +21,16 @@ BuildRequires:	perl-devel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
 BuildRequires:	esound-devel >= 0.2.7
-BuildRequires:	loudmouth-devel >= 0.13.1
+BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
+BuildRequires:	intltool
 BuildRequires:	libgadu-devel
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
-BuildRequires:	intltool
-BuildRequires:	gettext-devel >= 0.11.0
-BuildRequires:	xosd-devel   >= 2.0.0
+BuildRequires:	loudmouth-devel >= 0.13.1
 BuildRequires:	pkgconfig
-BuildRequires:	fontconfig-devel
-BuildRequires:	xcursor-devel
+BuildRequires:	xosd-devel   >= 2.0.0
 %{?with_arts:BuildRequires:	arts-devel}
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
