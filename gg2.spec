@@ -1,22 +1,20 @@
 
-%define		_pre	pre2
-
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.0
-Release:	0.%{_pre}.1
+Version:	2.0pre3
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
-#Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
-Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5: dc131e52db8fa2f9c16e8024b5236c99
+Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
+# Source0-md5:	49c52cec6869c9ed1b3c015f37401879
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 #BuildRequires:	arts-devel
+BuildRequires:	perl-devel
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1.6
+BuildRequires:	automake >= 1.7
 BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	iksemel-devel >= 0.0.1
 BuildRequires:	glib2-devel  >= 2.2.0
@@ -32,12 +30,27 @@ BuildRequires:	fontconfig-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Gadu-Gadu and Tlen.pl and any other instant messanger client with
+Gadu-Gadu, Tlen.pl and others instant messanger client with
 GTK+2 GUI on GNU/GPL.
 
 %description -l pl
-Klient Gadu-Gadu i Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
+Klient Gadu-Gadu, Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
 licencji GNU/GPL.
+
+%package devel
+Summary:	Headers to develop plugins
+Summary(pl):	Pliki potrzebne do rozwijania pluginow
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
+
+%description devel
+Gadu-Gadu, Tlen.pl and others instant messanger client with
+GTK+2 GUI on GNU/GPL. Package contain header files.
+
+%description devel -l pl
+Klient Gadu-Gadu, Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
+licencji GNU/GPL. - Pakiet zawiera pliki naglowkowe.
+
 
 %package gui-gtk+2
 Summary:	GTK+2 GUI plugin
@@ -97,7 +110,7 @@ Requires:	%{name} = %{version}
 Jabber protocol plugin.
 
 %description jabber -l pl
-Wtyczka protoko³u Jabber.org.
+Wtyczka protoko³u Jabber.
 
 %package sound-esd
 Summary:	Sound support with ESD
@@ -178,10 +191,10 @@ Group:          Applications/Communications
 Requires:       %{name} = %{version}
 
 %description sms
-Send SMS to cellurar phones via web gateways.
+Send SMS to cellular phones via web gateways.
 
 %description sms -l pl
-Wtyczka wysy³aj±ca SMS-y na telefony komórkowe przez bramki WWW.
+Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki WWW.
 
 %package remote
 Summary:        Remote access from other applications
@@ -196,20 +209,20 @@ Make possible exchange data with other applications.
 Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 
 %package themes
-Summary:	Themes for GnuGadu 2 GUI
-Summary(pl):	Motywy graficzne dla GUI GnuGadu 2
+Summary:	Themes for GNU Gadu 2 GUI
+Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
 Requires:       %{name} = %{version}
 Requires:	%{name}-gui-gtk+2
 
 %description themes
-Themes for GnuGadu 2 GUI.
+Themes for GNU Gadu 2 GUI.
 
 %description themes
-Motywy graficzne dla GUI GnuGadu 2.
+Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
-%setup -q -n %{name}-%{version}%{_pre}
+%setup -q -n %{name}-%{version}
 
 %build
 rm -f missing
@@ -222,17 +235,18 @@ intltoolize --copy --force
 %configure \
 	--disable-gdb \
 	--disable-debug \
-	--with-gui \
-	--with-gadu \
-	--with-tlen \
-	--with-jabber \
-	--with-xosd \
-	--with-docklet \
-	--with-esd \
-	--with-oss \
-	--with-sms \
-	--with-external \
-	--with-remote
+ 	--with-gui \
+ 	--with-gadu \
+ 	--with-tlen \
+ 	--with-jabber \
+ 	--with-xosd \
+ 	--with-docklet \
+ 	--with-esd \
+ 	--with-oss \
+ 	--with-sms \
+ 	--with-external \
+ 	--with-remote \
+	--enable-perl
 #	--with-arts
 
 %{__make}
@@ -247,7 +261,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/applications
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
-install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/online.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %find_lang %{name} --all-name --with-gnome
 
@@ -260,6 +274,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gg2
 %dir %{_libdir}/gg2
 %{_datadir}/%{name}/sounds
+%{_libdir}/libgg2_core.so*
 
 %files gui-gtk+2
 %defattr(644,root,root,755)
@@ -271,6 +286,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_pixmapsdir}/%{name}.png
 %{_datadir}/applications/gg2.desktop
+
+%files devel
+%{_includedir}/gg2_core.h
+%dir %{_libdir}/pkgconfig
+%{_libdir}/pkgconfig/gg2_core.pc
 
 %files emoticons
 %defattr(644,root,root,755)
