@@ -202,7 +202,7 @@ Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki WWW.
 Summary:	Remote access from other applications
 Summary(pl):	Dostêp do programu z innych aplikacji
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version} 
+Requires:	%{name} = %{epoch}:%{version}
 
 %description remote
 Make possible exchange data with other applications.
