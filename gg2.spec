@@ -26,7 +26,7 @@ BuildRequires:	libtool
 BuildRequires:	intltool
 BuildRequires:	xosd-devel   >= 2.0.0
 BuildRequires:  pkgconfig
-BuildRequires:	XFree86-fontconfig-devel
+BuildRequires:	fontconfig-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
