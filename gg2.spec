@@ -34,6 +34,7 @@ BuildRequires:	openssl-devel
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel   >= 2.0.0
+Requires:		gg2-ui
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,6 +75,7 @@ Summary:	GTK+2 GUI plugin
 Summary(es):	Plugin de GUI en GTK+2
 Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
+Provides:	gg2-ui
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description gui-gtk+2
@@ -286,6 +288,7 @@ Summary:	Remote access from other applications
 Summary(es):	Acceso remoto desde otras aplicaciones
 Summary(pl):	Dostêp do programu z innych aplikacji
 Group:		Applications/Communications
+Provides:	gg2-ui
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description remote
