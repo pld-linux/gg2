@@ -38,19 +38,20 @@ Klient Gadu-Gadu, Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
 licencji GNU/GPL.
 
 %package devel
-Summary:	Headers to develop plugins
-Summary(pl):	Pliki potrzebne do rozwijania pluginow
+Summary:	Headers for libgg2_core library to develop plugins
+Summary(pl):	Pliki nag³ówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
 Group:		Applications/Communications
 Requires:	%{name} = %{version}
+Requires:	glib2-devel
+Requires:	perl-devel
 
 %description devel
-Gadu-Gadu, Tlen.pl and others instant messanger client with
-GTK+2 GUI on GNU/GPL. Package contain header files.
+This package contains header files for libgg2_core library, needed to
+develop plugins for GNU Gadu 2.
 
 %description devel -l pl
-Klient Gadu-Gadu, Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
-licencji GNU/GPL. - Pakiet zawiera pliki naglowkowe.
-
+Ten pakiet zawiera pliki nag³ówkowe biblioteki libgg2_core, potrzebne
+do rozwijania wtyczek do GNU Gadu 2.
 
 %package gui-gtk+2
 Summary:	GTK+2 GUI plugin
@@ -267,16 +268,18 @@ install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pi
 
 #Remove useless files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/libgg2_core.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc A* C* N* R* T* contrib doc/*
 %attr(755,root,root) %{_bindir}/gg2
-%attr(755,root,root) %{_libdir}/libgg2_core.so*
+%attr(755,root,root) %{_libdir}/libgg2_core.so.*.*.*
 %dir %{_libdir}/gg2
 %{_datadir}/%{name}/sounds
 
@@ -293,6 +296,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libgg2_core.so
+%{_libdir}/libgg2_core.la
 %{_includedir}/gg2_core.h
 %{_pkgconfigdir}/gg2_core.pc
 
