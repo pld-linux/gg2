@@ -20,7 +20,7 @@ BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	iksemel-devel >= 0.0.1
 BuildRequires:	glib2-devel  >= 2.1.0
 BuildRequires:	gtk+2-devel  >= 2.1.0
-BuildRequires:	libgadu-devel >= 20030101
+BuildRequires:	libgadu-devel >= 20030211
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	intltool
