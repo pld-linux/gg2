@@ -1,4 +1,7 @@
 
+# TODO:
+# plugins MUST go to %{_libdir}!!!
+
 %define		snap 20021127
 
 Summary:	GNU Gadu 2 - free talking
@@ -11,10 +14,16 @@ License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.bz2
 URL:		http://gadu.gnu.pl/
+#BuildRequires:	arts-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	esound-devel
+BuildRequires:	glib2-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	libgadu-devel
+BuildRequires:	libtlen-devel
 BuildRequires:	libtool
-Requires:	glib2
+BuildRequires:	xosd-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -24,19 +33,17 @@ Gadu-Gadu and Tlen.pl and any other instant messanger client with
 GTK+2 GUI on GNU/GPL.
 
 %description -l pl
-Klient Gadu-Gadu i Tlen.pl oraz innych protoko³ów z GUI w GTK+2 na
+Klient Gadu-Gadu i Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
 licencji GNU/GPL.
 
 %package gui-gtk+2
 Summary:	GTK+2 GUI plugin
 Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
-BuildRequires:	gtk+2-devel
-Requires:	gtk+2
 Requires:	%{name} = %{version}
 
 %description gui-gtk+2
-GTK+2 GUI plugin.
+GTK+2 GUI plugin for GNU Gadu 2.
 
 %description gui-gtk+2 -l pl
 Wtyczka z GUI w GTK+2 do GNU Gadu 2.
@@ -57,8 +64,6 @@ Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 Summary:	Gadu-Gadu plugin
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
-BuildRequires:	libgadu-devel
-Requires:	libgadu
 Requires:	%{name} = %{version}
 
 %description gadu-gadu
@@ -71,8 +76,6 @@ Wtyczka protoko³u Gadu-Gadu.
 Summary:	Tlen.pl plugin
 Summary(pl):	Wtyczka protoko³u Tlen.pl
 Group:		Applications/Communications
-BuildRequires:	libtlen-devel
-Requires:	libtlen
 Requires:	%{name} = %{version}
 
 %description tlen
@@ -83,72 +86,63 @@ Wtyczka protoko³u Tlen.pl.
 
 %package sound-esd
 Summary:	Sound support with ESD
-Summary(pl):	Obs³uga d¼wiêku z ESD
+Summary(pl):	Obs³uga d¼wiêku poprzez ESD
 Group:		Applications/Communications
-BuildRequires:	esound-devel
-Requires:	esound
 Requires:	%{name} = %{version}
 
 %description sound-esd
 Sound support with ESD.
 
 %description sound-esd -l pl
-Obs³uga d¼wiêku z ESD.
+Obs³uga d¼wiêku poprzez ESD.
 
 %package sound-oss
-Summary:        Sound support with OSS
-Summary(pl):    Obsluga dzwieku z OSS
+Summary:        OSS sound support
+Summary(pl):    Obs³uga d¼wiêku OSS
 Group:          Applications/Communications
 Requires:       %{name} = %{version}
 
 %description sound-oss
-Sound support with OSS
+OSS sound support.
 
 %description sound-oss -l pl
-Obsluga dzwieku z OSS
-
+Obs³uga d¼wiêku OSS.
 
 #%package sound-aRts
 #Summary:	Sound support with aRts
-#Summary(pl):	Obs³uga d¼wiêku z aRts
+#Summary(pl):	Obs³uga d¼wiêku poprzez aRts
 #Group:		Applications/Communications
-#BuildRequires:	arts-devel
-#Requires:	arts
 #Requires:	%{name} = %{version}
 
 #%description sound-aRts
 #Sound support with aRts.
 
 #%description sound-aRts -l pl
-#Obs³uga d¼wiêku z aRts.
-
+#Obs³uga d¼wiêku poprzez aRts.
 
 %package xosd
 Summary:	Support for X On Screen Display
-Summary(pl):	Wyswietlanie komunikatów na ekranie X
+Summary(pl):	Wy¶wietlanie komunikatów na ekranie X
 Group:		Applications/Communications
-BuildRequires:	xosd-devel
-Requires:	xosd
 Requires:	%{name} = %{version}
 
 %description xosd
 Support for X On Screen Display.
 
 %description xosd -l pl
-Wyswietlanie komunikatów na ekranie X.
+Wy¶wietlanie komunikatów na ekranie X.
 
 %package docklet
 Summary:	Support for Window Managers docklets
-Summary(pl):	Obs³uga dockletów w ró¿nych zarz±dcach okien
+Summary(pl):	Obs³uga dokletów w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
-Requires:	XFree86-libs
 Requires:	%{name} = %{version}
 
 %description docklet
 Support for Window Managers docklets.
 
 %description docklet -l pl
-Obs³uga dockletów w ró¿nych zarz±dcach okien.
+Obs³uga dokletów w ró¿nych zarz±dcach okien.
 
 %prep
 %setup -q -n %{name}
@@ -187,15 +181,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gg2
+%dir %{_datadir}/gg2
 
 %files gui-gtk+2
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_datadir}/gg2/libGUI_plugin.so
+%dir %{_datadir}/gg2/pixmaps
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/*xpm
 %attr(755,root,root) %{_datadir}/gg2/pixmaps/*png
 
 %files emoticons
-%attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons/*
+%attr(755,root,root) %{_datadir}/gg2/pixmaps/emoticons
 
 %files gadu-gadu
 %defattr(644,root,root,755)
