@@ -147,7 +147,7 @@ Requires:	%{name} = %{version}
 Sound support with external player.
 
 %description sound-external -l pl
-Obs³uga d¼wiêku przez zewnêtrzny program
+Obs³uga d¼wiêku przez zewnêtrzny program.
 
 #%package sound-aRts
 #Summary:	Sound support with aRts
