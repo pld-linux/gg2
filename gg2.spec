@@ -1,5 +1,5 @@
 
-%define		snap 20021130
+%define		snap 20021201
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -136,10 +136,10 @@ Group:		Applications/Communications
 Requires:	%{name} = %{version}
 
 %description docklet
-Support for Window Managers docklets.
+Support for Window Managers docklets (GNOME, KDE)
 
 %description docklet -l pl
-Obs³uga dokletów w ró¿nych zarz±dcach okien.
+Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE)
 
 %prep
 %setup -q -n %{name}
@@ -210,3 +210,7 @@ rm -rf $RPM_BUILD_ROOT
 %files xosd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libxosd_plugin.so
+
+%files docklet
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libdocklet_plugin.so
