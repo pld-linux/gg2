@@ -89,7 +89,7 @@ Group:		Applications/Communications
 Requires:	%{name} = %{version}
 
 %description jabber
-Tlen.pl protocol plugin.
+Jabber protocol plugin.
 
 %description jabber -l pl
 Wtyczka protoko³u Jabber.org.
