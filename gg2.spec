@@ -220,7 +220,7 @@ Requires:	%{name}-gui-gtk+2
 %description themes
 Themes for GNU Gadu 2 GUI.
 
-%description themes
+%description themes -l pl
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
