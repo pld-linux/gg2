@@ -1,4 +1,6 @@
 
+%bcond_with	arts
+
 %define		_pre	pre3
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -28,6 +30,7 @@ BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	xosd-devel   >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	fontconfig-devel
+%{?with_arts:BuildRequires:	arts-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -150,17 +153,19 @@ Sound support with external player.
 %description sound-external -l pl
 Obs³uga d¼wiêku przez zewnêtrzny program.
 
-#%package sound-aRts
-#Summary:	Sound support with aRts
-#Summary(pl):	Obs³uga d¼wiêku poprzez aRts
-#Group:		Applications/Communications
-#Requires:	%{name} = %{version}
+%if %{with arts}
+%package sound-aRts
+Summary:	Sound support with aRts
+Summary(pl):	Obs³uga d¼wiêku poprzez aRts
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
 
-#%description sound-aRts
-#Sound support with aRts.
+%description sound-aRts
+Sound support with aRts.
 
-#%description sound-aRts -l pl
-#Obs³uga d¼wiêku poprzez aRts.
+%description sound-aRts -l pl
+Obs³uga d¼wiêku poprzez aRts.
+%endif
 
 %package xosd
 Summary:	Support for X On Screen Display
@@ -247,9 +252,11 @@ intltoolize --copy --force
  	--with-oss \
  	--with-sms \
  	--with-external \
+%if %{with arts}
+	--with-arts \
+%endif
  	--with-remote \
 	--enable-perl
-#	--with-arts
 
 %{__make}
 
@@ -329,6 +336,12 @@ rm -rf $RPM_BUILD_ROOT
 %files sound-external
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libsound_external_plugin.so
+
+%if %{with arts}
+%files sound-aRts
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libsound_arts_plugin.so
+%endif
 
 %files xosd
 %defattr(644,root,root,755)
