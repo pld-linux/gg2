@@ -4,7 +4,7 @@
 %bcond_without	perl
 %bcond_without	esd
 #
-%define		_snap	20031202
+%define		_snap	20031211
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -15,7 +15,7 @@ Epoch:		2
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	deec76afaa62cc196ef7cad8253d76e6
+# Source0-md5:	4e5167ba819531a7cf057c44d76e527f
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 %{?with_arts:BuildRequires:	arts-devel}
@@ -30,6 +30,7 @@ BuildRequires:	libgadu-devel >= 4:1.4
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.13.1
+BuildRequires:	openssl-devel
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel   >= 2.0.0
