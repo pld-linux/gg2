@@ -20,10 +20,11 @@ BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	iksemel-devel >= 0.0.1
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
-BuildRequires:	libgadu-devel >= 20030211
+BuildRequires:	libgadu-devel >= 1.0
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	intltool
+BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	xosd-devel   >= 2.0.0
 BuildRequires:  pkgconfig
 BuildRequires:	fontconfig-devel
@@ -199,7 +200,7 @@ Motywy graficzne dla GUI GnuGadu 2.
 
 %build
 rm -f missing
-glib-gettextize --copy --force
+gettextize --copy --force
 intltoolize --copy --force
 %{__libtoolize}
 %{__aclocal}
