@@ -364,17 +364,17 @@ Wtyczka sprawdzaj±ca, czy jest dostêpna nowsza wersja GNU Gadu.
 
 %package plugin-dbus
 Summary:	Allow to communicate using D-BUS message bus
-Summary(pl):	Pozwala na komunikacje za pomoc± magistrali D-BUS
+Summary(pl):	Komunikacja za pomoc± magistrali D-BUS
 Group:		Applications/Communications
 Provides:	%{name}-update = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-update
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-dbus
-Allow to communicate using D-BUS interface
+This plugin allows to communicate using D-BUS interface.
 
 %description plugin-dbus -l pl
-Wtyczka pozwala na komunikacje za pomoc± magistrali D-BUS
+Wtyczka pozwala na komunikacjê za pomoc± magistrali D-BUS.
 
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
