@@ -151,23 +151,23 @@ Group:		Applications/Communications
 Requires:	%{name} = %{version}
 
 %description docklet
-Support for Window Managers docklets (GNOME, KDE)
+Support for Window Managers docklets (GNOME, KDE).
 
 %description docklet -l pl
-Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE)
+Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package themes
 Summary:	Themes for GnuGadu 2 GUI
-Summary(pl):	Tematy graficzne dla GUI GnuGadu 2
+Summary(pl):	Motywy graficzne dla GUI GnuGadu 2
 Group:		Applications/Communications
 Requires:       %{name} = %{version}
 Requires:	%{name}-gui-gtk+2
 
 %description themes
-Themes for GnuGadu 2 GUI
+Themes for GnuGadu 2 GUI.
 
 %description themes
-Tematy graficzne dla GUI GnuGadu 2
+Motywy graficzne dla GUI GnuGadu 2.
 
 %prep
 %setup -q -n %{name}-2.0%{snap}
