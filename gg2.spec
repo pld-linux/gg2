@@ -1,5 +1,5 @@
 
-%define		snap 20030113
+%define		snap 20030122
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -17,8 +17,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	iksemel-devel >= 0.0.1
-BuildRequires:	glib2-devel  >= 2.0.1
-BuildRequires:	gtk+2-devel  >= 2.0.1
+BuildRequires:	glib2-devel  >= 2.1.0
+BuildRequires:	gtk+2-devel  >= 2.1.0
 BuildRequires:	libgadu-devel >= 20021123
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
