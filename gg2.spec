@@ -10,7 +10,7 @@ Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	0.%{_pre}.1
+Release:	0.%{_pre}.2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
@@ -18,6 +18,7 @@ Group:		Applications/Communications
 Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}%{_pre}.tar.bz2
 # Source0-md5:	855526fd075bfbd739a8bc823b2aa0ac
 URL:		http://www.gadu.gnu.pl/
+Patch0:		%{name}-emoticons-fixup_and_tlen.patch
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
@@ -334,6 +335,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
 %setup -q -n %{name}-%{version}%{_pre}
+%patch0 -p1
 
 %build
 rm -f missing
