@@ -204,7 +204,8 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}/applications
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}/
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
 install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/online.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %find_lang %{name} --all-name --with-gnome
@@ -224,11 +225,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gg2/libGUI_plugin.so
 %dir %{_datadir}/gg2
 %dir %{_datadir}/gg2/pixmaps
-%{_datadir}/gg2/pixmaps/*xpm
-%{_datadir}/gg2/pixmaps/*png
-%{_datadir}/gg2/pixmaps/*gif
+%{_datadir}/gg2/pixmaps/*.png
+%{_datadir}/gg2/pixmaps/*.gif
 
-%{_pixmapsdir}/%{name}.xpm
+%{_pixmapsdir}/%{name}.png
 %{_datadir}/applications/gg2.desktop
 
 %files emoticons
@@ -265,7 +265,7 @@ rm -rf $RPM_BUILD_ROOT
 %files themes
 %defattr(644,root,root,755)
 %dir %{_datadir}/gg2/themes
-%{_datadir}/gg2/themes/*theme
+%{_datadir}/gg2/themes/*.theme
 %dir %{_datadir}/gg2/pixmaps/icons
 %dir %{_datadir}/gg2/pixmaps/icons/bubble
 %dir %{_datadir}/gg2/pixmaps/icons/classic
