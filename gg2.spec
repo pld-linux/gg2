@@ -1,10 +1,10 @@
 #
 # Conditional build: 
-%bcond_without	arts
-%bcond_with	perl
-%bcond_without	esd
-%bcond_without	gtkspell
-%bcond_without	dbus
+%bcond_without	arts		# without aRts sound support
+%bcond_without	esd		# without EsounD sound support
+%bcond_without	dbus		# without DBUS support
+%bcond_without	gtkspell	# without gtkspell support
+%bcond_with	perl		# with perl support
 #
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
@@ -20,19 +20,19 @@ Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
 URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
 %{?with_arts:BuildRequires:	artsc-devel}
+%{?with_gtkspell:BuildRequires:	aspell-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
+%{?with_dbus:BuildRequires:	dbus-glib-devel >= 0.22}
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.7}
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel >= 2.2.0
 BuildRequires:	gtk+2-devel >= 2.4.0
+%{?with_gtkspell:BuildRequires:	gtkspell-devel}
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
 BuildRequires:	openssl-devel >= 0.9.7d
-%{?with_dbus:BuildRequires:	dbus-glib-devel >= 0.22}
-%{?with_gtkspell:BuildRequires:	gtkspell-devel}
-%{?with_gtkspell:BuildRequires:	aspell-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xosd-devel >= 2.0.0
 %if %{with perl}
@@ -82,11 +82,11 @@ Summary:	GTK+2 GUI plugin
 Summary(es):	Plugin de GUI en GTK+2
 Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
-Provides:	gg2-ui
-Provides:	%{name}-gui-gtk+2 = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-gui-gtk+2
-Obsoletes:	gg-gnome
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-ui
+Provides:	gg2-gui-gtk+2 = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-gui-gtk+2
+Obsoletes:	gg-gnome
 
 %description plugin-gui-gtk+2
 GTK+2 GUI plugin for GNU Gadu 2.
@@ -118,9 +118,9 @@ Summary:	Gadu-Gadu plugin
 Summary(es):	Plugin de Gadu-Gadu
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
-Provides:	%{name}-gadu-gadu = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-gadu-gadu
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-gadu-gadu = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-gadu-gadu
 
 %description plugin-gadu-gadu
 Gadu-Gadu protocol plugin.
@@ -136,9 +136,9 @@ Summary:	Tlen.pl plugin
 Summary(es):	Plugin de Tlen.pl
 Summary(pl):	Wtyczka protoko³u Tlen.pl
 Group:		Applications/Communications
-Provides:	%{name}-tlen = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-tlen
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-tlen = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-tlen
 
 %description plugin-tlen
 Tlen.pl protocol plugin.
@@ -156,8 +156,8 @@ Summary(pl):	Wtyczka protoko³u Jabber
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	loudmouth >= 0.16-4
-Provides:	%{name}-jabber = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-jabber
+Provides:	gg2-jabber = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-jabber
 
 %description plugin-jabber
 Jabber protocol plugin.
@@ -173,9 +173,9 @@ Summary:	Sound support with ESD
 Summary(es):	Soporte de sonido a través de ESD
 Summary(pl):	Obs³uga d¼wiêku poprzez ESD
 Group:		Applications/Communications
-Provides:	%{name}-sound-esd = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-sound-esd
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-sound-esd = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-sound-esd
 
 %description plugin-sound-esd
 Sound support with ESD.
@@ -191,9 +191,9 @@ Summary:	OSS sound support
 Summary(es):	Soporte de sonido a través de OSS
 Summary(pl):	Obs³uga d¼wiêku OSS
 Group:		Applications/Communications
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	%{name}-sound-oss = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-sound-oss
-Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-sound-oss
 OSS sound support.
@@ -209,9 +209,9 @@ Summary:	Sound support with external player
 Summary(es):	Soporte de sonido vía un reproductor externo
 Summary(pl):	Obs³uga d¼wiêku przez zewnêtrzny program
 Group:		Applications/Communications
-Provides:	%{name}-sound-external = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-sound-external
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-sound-external = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-sound-external
 
 %description plugin-sound-external
 Sound support with external player.
@@ -227,9 +227,9 @@ Summary:	Sound support with aRts
 Summary(es):	Soporte de sonido a través de aRts
 Summary(pl):	Obs³uga d¼wiêku poprzez aRts
 Group:		Applications/Communications
-Provides:	%{name}-sound-aRts = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-sound-aRts
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-sound-aRts = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-sound-aRts
 
 %description plugin-sound-aRts
 Sound support with aRts.
@@ -245,9 +245,9 @@ Summary:	Support for X On Screen Display
 Summary(es):	Soporte para plasmar mensajes sobre el fondo de X
 Summary(pl):	Wy¶wietlanie komunikatów na ekranie X
 Group:		Applications/Communications
-Provides:	%{name}-xosd = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-xosd
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-xosd = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-xosd
 
 %description plugin-xosd
 Support for X On Screen Display.
@@ -263,10 +263,10 @@ Summary:	Support for Window Managers notification areas
 Summary(es):	Soporte para áreas de notificación de los Manejantes de Ventanas
 Summary(pl):	Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
-Provides:	%{name}-docklet-system-tray = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-docklet-system-tray
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-docklet
+Provides:	gg2-docklet-system-tray = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-docklet-system-tray
+Obsoletes:	gg2-docklet
 
 %description plugin-docklet-system-tray
 Support for Window Managers notification areas (GNOME, KDE).
@@ -283,10 +283,10 @@ Summary:	Support for WindowMaker-style dockapp
 Summary(es):	Soporte de dockapp estilo WindowMaker
 Summary(pl):	Obs³uga dokowalnego apletu zgodnego z WindowMakerem
 Group:		Applications/Communications
-Provides:	%{name}-docklet-dockapp = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-docklet-dockapp
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-docklet
+Provides:	gg2-docklet-dockapp = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-docklet-dockapp
+Obsoletes:	gg2-docklet
 Obsoletes:	gg-gnome-applet
 Obsoletes:	gg-wm-applet
 
@@ -304,9 +304,9 @@ Summary:	SMS Gateway
 Summary(es):	Puerta SMS
 Summary(pl):	Bramka SMS
 Group:		Applications/Communications
-Provides:	%{name}-sms = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-sms
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-sms = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-sms
 
 %description plugin-sms
 Send SMS to cellular phones via web gateways.
@@ -323,10 +323,10 @@ Summary:	Remote access from other applications
 Summary(es):	Acceso remoto desde otras aplicaciones
 Summary(pl):	Dostêp do programu z innych aplikacji
 Group:		Applications/Communications
-Provides:	%{name}-remote = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-remote
-#Provides:	gg2-ui
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+#Provides:	gg2-ui
+Provides:	gg2-remote = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-remote
 
 %description plugin-remote
 Make possible exchange data with other applications.
@@ -341,10 +341,10 @@ Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 Summary:	Allow to view GNU Gadu chat history
 Summary(pl):	Przegl±danie historii rozmów GNU Gadu
 Group:		Applications/Communications
-Provides:	%{name}-history-external = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-history-external
-Requires:	gtk+2
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	gtk+2
+Provides:	gg2-history-external = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-history-external
 
 %description plugin-history-external
 Allow to view GNU Gadu chat history.
@@ -357,9 +357,9 @@ Summary:	Check for new GNU Gadu newer version
 Summary(es):	Verifica si hay versiones nuevas de GNU Gadu
 Summary(pl):	Sprawdzanie dostêpno¶ci nowszej wersji GNU Gadu
 Group:		Applications/Communications
-Provides:	%{name}-update = %{epoch}:%{version}-%{release}
-Obsoletes:	%{name}-update
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Provides:	gg2-update = %{epoch}:%{version}-%{release}
+Obsoletes:	gg2-update
 
 %description plugin-update
 Check for new GNU Gadu newer version.
@@ -411,8 +411,7 @@ Summary:	Themes for GNU Gadu 2 GUI
 Summary(es):	Temas para el GUI de GNU Gadu 2
 Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
-Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	%{name}-gui-gtk+2
+Requires:	%{name}-gui-gtk+2 = %{epoch}:%{version}-%{release}
 
 %description themes
 Themes for GNU Gadu 2 GUI.
