@@ -26,8 +26,6 @@ BuildRequires:	intltool
 BuildRequires:	xosd-devel   >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-
 %description
 Gadu-Gadu and Tlen.pl and any other instant messanger client with
 GTK+2 GUI on GNU/GPL.
@@ -191,8 +189,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/applications
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}/
 install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/online.xpm $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.xpm
-
-
 
 %find_lang %{name} --all-name --with-gnome
 
