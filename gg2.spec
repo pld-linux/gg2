@@ -24,7 +24,7 @@ BuildRequires:	esound-devel >= 0.2.7
 BuildRequires:	loudmouth-devel >= 0.13.1
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
-BuildRequires:	libgadu-devel <= 3:1.3-1
+BuildRequires:	libgadu-devel
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	intltool
@@ -98,6 +98,7 @@ Summary:	Gadu-Gadu plugin
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
+Requires:	libgadu <= 3:1.3-1
 
 %description gadu-gadu
 Gadu-Gadu protocol plugin.
