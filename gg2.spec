@@ -11,6 +11,7 @@ License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
 Source1:	%{name}.desktop
+Patch0:		%{name}-gettext.patch
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
@@ -24,6 +25,7 @@ BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	intltool
 BuildRequires:	xosd-devel   >= 2.0.0
+BuildRequires:  pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -156,9 +158,12 @@ Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE)
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 rm -f missing
+glib-gettextize --copy --force
+intltoolize --copy --force
 %{__libtoolize}
 %{__aclocal}
 %{__automake}
