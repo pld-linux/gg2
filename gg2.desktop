@@ -6,4 +6,5 @@ Exec=gg2
 Icon=gg2.xpm
 Terminal=0
 Type=Application
+Categories=Application;Network;
 # vi: encoding=utf-8
