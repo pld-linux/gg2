@@ -17,7 +17,7 @@ Group:		Applications/Communications
 #Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
 Source0:	http://osdn.dl.sourceforge.net/ggadu/%{name}-%{version}%{_pre}.tar.bz2
 # Source0-md5:	855526fd075bfbd739a8bc823b2aa0ac
-URL:		http://www.gnugadu.org
+URL:		http://www.gnugadu.org/
 Patch0:		%{name}-emoticons-fixup_and_tlen.patch
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
