@@ -4,22 +4,21 @@
 %bcond_without	perl
 %bcond_without	esd
 %bcond_without	gtkspell
-%bcond_with	dbus
+%bcond_without	dbus
 #
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.2.2
-Release:	2
+Version:	2.2.3
+Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://osdn.dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}.tar.gz
-# Source0-md5:	6d141d2de45f7ae12f2d9ec78e6f2b55
+# Source0-md5:	5d38e161612307ea2a7a00f9453678e3
 URL:		http://www.gnugadu.org/
-Patch0:		%{name}-dbus-headerfile.patch
-Patch1:		%{name}-desktop.patch
+Patch0:		%{name}-desktop.patch
 %{?with_arts:BuildRequires:	artsc-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
@@ -318,7 +317,7 @@ Summary(pl):	Dostêp do programu z innych aplikacji
 Group:		Applications/Communications
 Provides:	%{name}-remote = %{epoch}:%{version}-%{release}
 Obsoletes:	%{name}-remote
-Provides:	gg2-ui
+#Provides:	gg2-ui
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-remote
@@ -397,7 +396,6 @@ Motywy graficzne dla GUI GNU Gadu 2.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__gettextize}
@@ -426,6 +424,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
 	--with-gghist \
 	--with%{!?with_gtkspell:out}-gtkspell \
 	--with%{!?with_dbus:out}-dbus \
+	%{?with_dbus:--with-dbus-dir=%{_datadir}/dbus-1.0/services/} \
 	--%{?with_perl:with}%{!?with_perl:without}-perl \
  	--with-remote
 
