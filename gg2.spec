@@ -1,5 +1,5 @@
 
-%define		snap 20030125
+%define		snap snap
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -155,6 +155,19 @@ Support for Window Managers docklets (GNOME, KDE)
 %description docklet -l pl
 Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE)
 
+%package themes
+Summary:	Themes for GnuGadu 2 GUI
+Summary(pl):	Tematy graficzne dla GUI GnuGadu 2
+Group:		Applications/Communications
+Requires:       %{name} = %{version}
+Requires:	%{name}-gui-gtk+2
+
+%description themes
+Themes for GnuGadu 2 GUI
+
+%description themes
+Tematy graficzne dla GUI GnuGadu 2
+
 %prep
 %setup -q -n %{name}
 
@@ -247,3 +260,8 @@ rm -rf $RPM_BUILD_ROOT
 %files docklet
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libdocklet_plugin.so
+
+%files themes
+%defattr(644,root,root,755)
+%dir %{_datadir}/gg2/themes
+%{_datadir}/gg2/themes/*theme
