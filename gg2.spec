@@ -32,6 +32,7 @@ BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	xosd-devel   >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	fontconfig-devel
+BuildRequires:	xcursor-devel
 %{?with_arts:BuildRequires:	arts-devel}
 %{?with_perl:BuildRequires:	perl-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
