@@ -10,7 +10,7 @@ Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
-Source0:	ftp://ftp.slackware.pl/gg/%{name}-2.0%{snap}.tar.gz
+Source0:	ftp://ftp.slackware.pl/pub/gg/%{name}-2.0%{snap}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
