@@ -1,26 +1,27 @@
 
 %bcond_with	arts
 %bcond_without	perl
+%bcond_without	esd
 
-%define		_snap	20031020
+%define		_snap	20031117
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	2.%{_snap}.2
+Release:	2.%{_snap}.1
 Epoch:		2
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://dl.sourceforge.net/sourceforge/ggadu/%{name}-%{version}-%{_snap}.tar.gz
 Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}-%{_snap}.tar.gz
-# Source0-md5:	2b1540839e84b39688c68d008d0725eb
+# Source0-md5:	c105e95d740323feb14d726f07523bd1
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 BuildRequires:	perl-devel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.7
-BuildRequires:	esound-devel >= 0.2.7
+%{?with_esd:BuildRequires:	esound-devel >= 0.2.7}
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
@@ -97,7 +98,6 @@ Summary:	Gadu-Gadu plugin
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
-Requires:	libgadu <= 3:1.3-1
 
 %description gadu-gadu
 Gadu-Gadu protocol plugin.
@@ -129,6 +129,7 @@ Jabber protocol plugin.
 %description jabber -l pl
 Wtyczka protoko³u Jabber.
 
+%if %{with esd}
 %package sound-esd
 Summary:	Sound support with ESD
 Summary(pl):	Obs³uga d¼wiêku poprzez ESD
@@ -140,6 +141,7 @@ Sound support with ESD.
 
 %description sound-esd -l pl
 Obs³uga d¼wiêku poprzez ESD.
+%endif
 
 %package sound-oss
 Summary:	OSS sound support
@@ -191,16 +193,17 @@ Support for X On Screen Display.
 %description xosd -l pl
 Wy¶wietlanie komunikatów na ekranie X.
 
-%package docklet
-Summary:	Support for Window Managers docklets
+%package docklet-system-tray
+Summary:	Support for Window Managers notification areas
 Summary(pl):	Obs³uga dokletów w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
+Obsoletes:	%{name}-docklet
 
-%description docklet
-Support for Window Managers docklets (GNOME, KDE).
+%description docklet-system-tray
+Support for Window Managers nofinication areas (GNOME, KDE).
 
-%description docklet -l pl
+%description docklet-system-tray -l pl
 Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package sms
@@ -226,6 +229,18 @@ Make possible exchange data with other applications.
 
 %description remote -l pl
 Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
+
+%package update
+Summary:	Check for new GNU Gadu newer version
+Summary(pl):	Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
+Group:		Applications/Communications
+Requires:	%{name} = %{epoch}:%{version}
+
+%description update
+Check for new GNU Gadu newer version.
+
+%description update -l pl
+Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
 
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
@@ -259,11 +274,14 @@ intltoolize --copy --force
  	--with-tlen \
  	--with-jabber \
  	--with-xosd \
- 	--with-docklet \
- 	--with-esd \
- 	--with-oss \
  	--with-sms \
+ 	--with-docklet_system_tray \
+%if %{with esd}
+ 	--with-esd \
+%endif
+ 	--with-oss \
  	--with-external \
+ 	--with-update \
 %if %{with arts}
 	--with-arts \
 %endif
@@ -288,7 +306,6 @@ install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pi
 
 %find_lang %{name} --all-name --with-gnome
 
-#Remove useless files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 
 %clean
@@ -312,7 +329,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gg2/pixmaps
 %{_datadir}/gg2/pixmaps/*.png
 %{_datadir}/gg2/pixmaps/*.gif
-
 %{_pixmapsdir}/%{name}.png
 %{_desktopdir}/gg2.desktop
 
@@ -339,9 +355,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libjabber_plugin.so
 
+%if %{with esd}
 %files sound-esd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libsound_esd_plugin.so
+%endif
 
 %files sound-oss
 %defattr(644,root,root,755)
@@ -361,9 +379,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libxosd_plugin.so
 
-%files docklet
+%files docklet-system-tray
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/gg2/libdocklet_plugin.so
+%attr(755,root,root) %{_libdir}/gg2/libdocklet_system_tray_plugin.so
 
 %files sms
 %defattr(644,root,root,755)
@@ -372,6 +390,10 @@ rm -rf $RPM_BUILD_ROOT
 %files remote
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libremote_plugin.so
+
+%files update
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libupdate_plugin.so
 
 %files themes
 %defattr(644,root,root,755)
