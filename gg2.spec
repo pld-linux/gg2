@@ -11,6 +11,7 @@ License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
 Source1:	%{name}.desktop
+Patch0:		%{name}-gettext.patch
 URL:		http://gadu.gnu.pl/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
@@ -157,6 +158,7 @@ Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE)
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 rm -f missing
