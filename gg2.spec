@@ -26,7 +26,7 @@ BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.4.0
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
-BuildRequires:	loudmouth-devel >= 0.16-4
+BuildRequires:	loudmouth-devel >= 0.17.1
 BuildRequires:	openssl-devel >= 0.9.7d
 %{?with_perl:BuildRequires:	perl-devel}
 %{?with_gtkspell:BuildRequires:	gtkspell-devel}
