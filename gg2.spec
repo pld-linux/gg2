@@ -4,7 +4,7 @@
 %bcond_without	perl
 %bcond_without	esd
 #
-%define		_pre	pre4
+%define		_pre	pre5
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
@@ -16,7 +16,7 @@ License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}%{_pre}.tar.bz2
-# Source0-md5:	f7b012a5e301c0f0d96738b1d078e4c7
+# Source0-md5:	0e24e1420d3b85822b871af953e12df6
 URL:		http://www.gadu.gnu.pl/
 %{?with_arts:BuildRequires:	arts-devel}
 BuildRequires:	autoconf
