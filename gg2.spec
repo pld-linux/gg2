@@ -27,7 +27,7 @@ BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
 BuildRequires:	intltool
-BuildRequires:	libgadu-devel >= 1.3.1
+BuildRequires:	libgadu-devel >= 3:1.3.1
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.13.1
