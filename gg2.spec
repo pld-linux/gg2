@@ -21,27 +21,25 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Gadu-Gadu and Tlen.pl and any other instant messanger client with
-GTK+2 GUI on GNU/GPL
+GTK+2 GUI on GNU/GPL.
 
 %description -l pl
-Klient Gadu-Gadu i Tlen.pl oraz innych protokolow z GUI w GTK+2 na
-licencji GNU/GPL
+Klient Gadu-Gadu i Tlen.pl oraz innych protoko³ów z GUI w GTK+2 na
+licencji GNU/GPL.
 
 %package gui-gtk+2
 Summary:	GTK+2 GUI plugin
-Summary(pl):	GTK+2 GUI plugin
+Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
 BuildRequires:	gtk+2-devel
 Requires:	gtk+2
 Requires:	%{name} = %{version}
 
 %description gui-gtk+2
-GTK+2 GUI plugin
+GTK+2 GUI plugin.
 
 %description gui-gtk+2 -l pl
-GTK+2 GUI plugin
-
-
+Wtyczka z GUI w GTK+2 do GNU Gadu 2.
 
 %package emoticons
 Summary:	Emoticons
@@ -50,106 +48,97 @@ Group:          Applications/Communications
 Requires:       %{name} = %{version}
 
 %description emoticons
-Emotions icons and description files
+Emotions icons and description files.
 
 %description -l pl
-Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym
-
-
+Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 
 %package gadu-gadu
 Summary:	Gadu-Gadu plugin
-Summary(pl):	Gadu-Gadu plugin
+Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
 BuildRequires:	libgadu-devel
 Requires:	libgadu
 Requires:	%{name} = %{version}
 
 %description gadu-gadu
-Gadu-Gadu protocol plugin
+Gadu-Gadu protocol plugin.
 
 %description -l pl
-Plugin protokolu Gadu-Gadu
-
-
+Wtyczka protoko³u Gadu-Gadu.
 
 %package tlen
 Summary:	Tlen.pl plugin
-Summary(pl):	Tlen.pl plugin
+Summary(pl):	Wtyczka protoko³u Tlen.pl
 Group:		Applications/Communications
 BuildRequires:	libtlen-devel
 Requires:	libtlen
 Requires:	%{name} = %{version}
 
 %description tlen
-Tlen.pl protocol plugin
+Tlen.pl protocol plugin.
 
 %description tlen -l pl
-Plugin protokolu Tlen.pl
-
+Wtyczka protoko³u Tlen.pl.
 
 %package sound-esd
 Summary:	Sound support with ESD
-Summary(pl):	Obsluga dzwieku z ESD
+Summary(pl):	Obs³uga d¼wiêku z ESD
 Group:		Applications/Communications
 BuildRequires:	esound-devel
 Requires:	esound
 Requires:	%{name} = %{version}
 
 %description sound-esd
-Sound support with ESD
+Sound support with ESD.
 
 %description sound-esd -l pl
-Obsluga dzwieku z ESD
-
+Obs³uga d¼wiêku z ESD.
 
 #%package sound-aRts
 #Summary:	Sound support with aRts
-#Summary(pl):	Obsluga dzwieku z aRts
+#Summary(pl):	Obs³uga d¼wiêku z aRts
 #Group:		Applications/Communications
 #BuildRequires:	arts-devel
 #Requires:	arts
 #Requires:	%{name} = %{version}
 
 #%description sound-aRts
-#Sound support with aRts
+#Sound support with aRts.
 
 #%description sound-aRts -l pl
-#Obsluga dzwieku z aRts
+#Obs³uga d¼wiêku z aRts.
 
 
 %package xosd
 Summary:	Support for X On Screen Display
-Summary(pl):	Wyswietlanie komunikatow na ekranie
+Summary(pl):	Wyswietlanie komunikatów na ekranie X
 Group:		Applications/Communications
 BuildRequires:	xosd-devel
 Requires:	xosd
 Requires:	%{name} = %{version}
 
 %description xosd
-Support for X On Screen Display
+Support for X On Screen Display.
 
 %description xosd -l pl
-Wyswietlanie komunikatow na ekranie
-
+Wyswietlanie komunikatów na ekranie X.
 
 %package docklet
 Summary:	Support for Window Managers docklets
-Summary(pl):	Obsluga dockletow w roznych menadzerach okien
+Summary(pl):	Obs³uga dockletów w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
 Requires:	XFree86-libs
 Requires:	%{name} = %{version}
 
 %description docklet
-Support for Window Managers docklets
+Support for Window Managers docklets.
 
 %description docklet -l pl
-Obsluga dockletow w roznych menadzerach okien
-
+Obs³uga dockletów w ró¿nych zarz±dcach okien.
 
 %prep
 %setup -q -n %{name}
-
 
 %build
 rm -f missing
