@@ -11,6 +11,7 @@ License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.bz2
 URL:		http://gadu.gnu.pl/
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 Requires:	glib2
@@ -144,6 +145,8 @@ rm -f missing
 %{__autoconf}
 
 %configure \
+	--disable-gdb \
+	--disable-debug \
 	--with-gtk2-gui \
 	--with-gadu-gadu \
 	--with-tlen \
