@@ -17,6 +17,7 @@ Group:		Applications/Communications
 Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}-%{_snap}.tar.gz
 # Source0-md5:	c105e95d740323feb14d726f07523bd1
 Source1:	%{name}.desktop
+Patch0:		%{name}-typo.patch
 URL:		http://www.gadu.gnu.pl/
 BuildRequires:	perl-devel
 BuildRequires:	autoconf
@@ -26,7 +27,7 @@ BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel  >= 2.2.0
 BuildRequires:	gtk+2-devel  >= 2.2.0
 BuildRequires:	intltool
-BuildRequires:	libgadu-devel
+BuildRequires:	libgadu-devel >= 1.3.1
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.13.1
@@ -71,6 +72,7 @@ do rozwijania wtyczek do GNU Gadu 2.
 
 %package gui-gtk+2
 Summary:	GTK+2 GUI plugin
+Summary(es):	Plugin de GUI en GTK+2
 Summary(pl):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -78,11 +80,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description gui-gtk+2
 GTK+2 GUI plugin for GNU Gadu 2.
 
+%description gui-gtk+2 -l es
+Un plugin con un GUI en GTK+2 para GNU Gadu 2.
+
 %description gui-gtk+2 -l pl
 Wtyczka z GUI w GTK+2 do GNU Gadu 2.
 
 %package emoticons
 Summary:	Emoticons
+Summary(es):	Emoticons
 Summary(pl):	Emotikony
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -90,11 +96,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description emoticons
 Emotions icons and description files.
 
+%description emoticons -l es
+Iconas de emociones y sus ficheros de descripción.
+
 %description emoticons -l pl
 Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 
 %package gadu-gadu
 Summary:	Gadu-Gadu plugin
+Summary(es):	Plugin de Gadu-Gadu
 Summary(pl):	Wtyczka protoko³u Gadu-Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -102,11 +112,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description gadu-gadu
 Gadu-Gadu protocol plugin.
 
+%description gadu-gadu -l es
+Un plugin para el protocolo Gadu-Gadu.
+
 %description gadu-gadu -l pl
 Wtyczka protoko³u Gadu-Gadu.
 
 %package tlen
 Summary:	Tlen.pl plugin
+Summary(es):	Plugin de Tlen.pl
 Summary(pl):	Wtyczka protoko³u Tlen.pl
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -114,11 +128,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description tlen
 Tlen.pl protocol plugin.
 
+%description tlen -l es
+Un plugin para el protocolo Tlen.pl.
+
 %description tlen -l pl
 Wtyczka protoko³u Tlen.pl.
 
 %package jabber
 Summary:	Jabber.org plugin
+Summary(es):	Plugin de Jabber.org
 Summary(pl):	Wtyczka protoko³u Jabber
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -126,12 +144,16 @@ Requires:	%{name} = %{epoch}:%{version}
 %description jabber
 Jabber protocol plugin.
 
+%description jabber -l es
+Un plugin para el protocolo Jabber.
+
 %description jabber -l pl
 Wtyczka protoko³u Jabber.
 
 %if %{with esd}
 %package sound-esd
 Summary:	Sound support with ESD
+Summary(es):	Soporte de sonido a través de ESD
 Summary(pl):	Obs³uga d¼wiêku poprzez ESD
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -139,12 +161,16 @@ Requires:	%{name} = %{epoch}:%{version}
 %description sound-esd
 Sound support with ESD.
 
+%description sound-esd -l es
+Soporte de sonido a través de ESD.
+
 %description sound-esd -l pl
 Obs³uga d¼wiêku poprzez ESD.
 %endif
 
 %package sound-oss
 Summary:	OSS sound support
+Summary(es):	Soporte de sonido a través de OSS
 Summary(pl):	Obs³uga d¼wiêku OSS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -152,11 +178,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description sound-oss
 OSS sound support.
 
+%description sound-oss -l es
+Soporte de sonido a través de OSS.
+
 %description sound-oss -l pl
 Obs³uga d¼wiêku OSS.
 
 %package sound-external
 Summary:	Sound support with external player
+Summary(es):	Soporte de sonido vía un reproductor externo
 Summary(pl):	Obs³uga d¼wiêku przez zewnêtrzny program
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -164,12 +194,16 @@ Requires:	%{name} = %{epoch}:%{version}
 %description sound-external
 Sound support with external player.
 
+%description sound-external -l es
+Soporte de sonido a través de un reproductor externo.
+
 %description sound-external -l pl
 Obs³uga d¼wiêku przez zewnêtrzny program.
 
 %if %{with arts}
 %package sound-aRts
 Summary:	Sound support with aRts
+Summary(es):	Soporte de sonido a través de aRts
 Summary(pl):	Obs³uga d¼wiêku poprzez aRts
 Group:		Applications/Communications
 Requires:	%{name} = %{version}
@@ -177,12 +211,16 @@ Requires:	%{name} = %{version}
 %description sound-aRts
 Sound support with aRts.
 
+%description sound-aRts -l es
+Soporte de sonido a través de aRts.
+
 %description sound-aRts -l pl
 Obs³uga d¼wiêku poprzez aRts.
 %endif
 
 %package xosd
 Summary:	Support for X On Screen Display
+Summary(es):	Soporte para plasmar mensajes sobre el fondo de X
 Summary(pl):	Wy¶wietlanie komunikatów na ekranie X
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -190,12 +228,16 @@ Requires:	%{name} = %{epoch}:%{version}
 %description xosd
 Support for X On Screen Display.
 
+%description xosd -l es
+Soporte para plasmar mensajes sobre el fondo (XOSD).
+
 %description xosd -l pl
 Wy¶wietlanie komunikatów na ekranie X.
 
 %package docklet-system-tray
 Summary:	Support for Window Managers notification areas
-Summary(pl):	Obs³uga dokletów w ró¿nych zarz±dcach okien
+Summary(es):	Soporte para áreas de notificación de los Manejantes de Ventanas
+Summary(pl):	Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
 Obsoletes:	%{name}-docklet
@@ -203,11 +245,16 @@ Obsoletes:	%{name}-docklet
 %description docklet-system-tray
 Support for Window Managers nofinication areas (GNOME, KDE).
 
+%description docklet-system-tray -l es
+Soporte para áreas de notificación de los Manejantes de Ventanas
+(GNOME, KDE).
+
 %description docklet-system-tray -l pl
-Obs³uga dokletów w ró¿nych zarz±dcach okien (GNOME, KDE).
+Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien (GNOME, KDE).
 
 %package sms
 Summary:	SMS Gateway
+Summary(es):	Puerta SMS
 Summary(pl):	Bramka SMS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -215,11 +262,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description sms
 Send SMS to cellular phones via web gateways.
 
+%description sms -l es
+Manda mensajes SMS a móviles vía puertas del Web.
+
 %description sms -l pl
 Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki WWW.
 
 %package remote
 Summary:	Remote access from other applications
+Summary(es):	Acceso remoto desde otras aplicaciones
 Summary(pl):	Dostêp do programu z innych aplikacji
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -227,11 +278,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description remote
 Make possible exchange data with other applications.
 
+%description remote -l es
+Permite intercambiar los datos con otras aplicaciones.
+
 %description remote -l pl
 Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
 
 %package update
 Summary:	Check for new GNU Gadu newer version
+Summary(es):	Verifica si hay versiones nuevas de GNU Gadu
 Summary(pl):	Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -239,11 +294,15 @@ Requires:	%{name} = %{epoch}:%{version}
 %description update
 Check for new GNU Gadu newer version.
 
+%description update -l es
+Verifica si hay nuevas versiones de GNU Gadu.
+
 %description update -l pl
 Sprawdza czy jest dostêpna nowsza wersja GNU Gadu
 
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
+Summary(es):	Temas para el GUI de GNU Gadu 2
 Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}
@@ -252,11 +311,15 @@ Requires:	%{name}-gui-gtk+2
 %description themes
 Themes for GNU Gadu 2 GUI.
 
+%description themes -l es
+Temas para el GUI de GNU Gadu 2.
+
 %description themes -l pl
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
 %setup -q -n %{name}-%{version}-%{_snap}
+%patch0 -p1
 
 %build
 rm -f missing
@@ -276,18 +339,12 @@ intltoolize --copy --force
  	--with-xosd \
  	--with-sms \
  	--with-docklet_system_tray \
-%if %{with esd}
- 	--with-esd \
-%endif
+	--%{?with_esd:with}%{?!with_esd:without}-esd \
  	--with-oss \
  	--with-external \
  	--with-update \
-%if %{with arts}
-	--with-arts \
-%endif
-%if %{with perl}
-	--enable-perl \
-%endif
+	--%{?with_arts:with}%{?!with_arts:without}-arts \
+	--%{?with_perl:enable}%{?!with_perl:disable}-perl \
  	--with-remote
 
 %{__make}
