@@ -267,7 +267,7 @@ install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pi
 
 #Remove useless files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/libgg2_core.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/libgg2_core.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
