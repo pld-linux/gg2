@@ -257,13 +257,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_datadir}/applications
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
 install $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 %find_lang %{name} --all-name --with-gnome
+
+#Remove useless files
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/libgg2_core.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -285,12 +289,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gg2/pixmaps/*.gif
 
 %{_pixmapsdir}/%{name}.png
-%{_datadir}/applications/gg2.desktop
+%{_desktopdir}/gg2.desktop
 
 %files devel
 %{_includedir}/gg2_core.h
-%dir %{_libdir}/pkgconfig
-%{_libdir}/pkgconfig/gg2_core.pc
+%{_pkgconfigdir}/gg2_core.pc
 
 %files emoticons
 %defattr(644,root,root,755)
