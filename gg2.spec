@@ -1,18 +1,18 @@
 
-%define		pre pre1
+%define		pre pre2
 
 Summary:	GNU Gadu 2 - free talking
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	%{pre}
-Release:	2
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		Applications/Communications
 #Source0:	http://www.hakore.com/~krzak/gg2/%{name}-%{snap}.tar.gz
 Source0:	http://telia.dl.sourceforge.net/sourceforge/ggadu/gg2-2.0%{pre}.tar.gz
 Source1:	%{name}.desktop
-URL:		http://gadu.sourceforge.net/
+URL:		http://www.gadu.gnu.pl/
 #BuildRequires:	arts-devel
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.6
@@ -122,6 +122,18 @@ OSS sound support.
 %description sound-oss -l pl
 Obs³uga d¼wiêku OSS.
 
+%package sound-external
+Summary:	Sound support with external player
+Summary(pl):	Obs³uga d¼wiêku przez zewnêtrzny program
+Group:		Applications/Communications
+Requires:	%{name} = %{version}
+
+%description sound-external
+Sound support with external player.
+
+%description sound-external -l pl
+Obs³uga d¼wiêku przez zewnêtrzny program
+
 #%package sound-aRts
 #Summary:	Sound support with aRts
 #Summary(pl):	Obs³uga d¼wiêku poprzez aRts
@@ -209,8 +221,8 @@ intltoolize --copy --force
 %configure \
 	--disable-gdb \
 	--disable-debug \
-	--with-gtk2-gui \
-	--with-gadu-gadu \
+	--with-gui \
+	--with-gadu \
 	--with-tlen \
 	--with-jabber \
 	--with-xosd \
@@ -218,6 +230,7 @@ intltoolize --copy --force
 	--with-esd \
 	--with-oss \
 	--with-sms \
+	--with-external \
 	--with-remote
 #	--with-arts
 
@@ -243,6 +256,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+%doc $RPM_BUILD_ROOT%{_docdir}/gg2-2.0pre2/*
 %attr(755,root,root) %{_bindir}/gg2
 %dir %{_libdir}/gg2
 %{_datadir}/%{name}/sounds
@@ -282,6 +296,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libsound_oss_plugin.so
 
+%files sound-external
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gg2/libsound_external_plugin.so
+
 %files xosd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libxosd_plugin.so
@@ -315,3 +333,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gg2/pixmaps/icons/modern/README
 %{_datadir}/gg2/pixmaps/icons/rozgwiazda/*.png
 %{_datadir}/gg2/pixmaps/icons/rozgwiazda/license.txt
+%{_datadir}/gg2/pixmaps/icons/ghosts/*.png
+%{_datadir}/gg2/pixmaps/icons/ghosts/README
+%{_datadir}/gg2/pixmaps/icons/tlen-3d/README
+%{_datadir}/gg2/pixmaps/icons/tlen-3d/*.png
