@@ -255,7 +255,7 @@ intltoolize --copy --force
  	--with-sms \
  	--with-external \
 %if %{with arts}
-	--with-arts} \
+	--with-arts \
 %endif
 %if %{with perl}
 	--enable-perl \
