@@ -4,18 +4,18 @@
 %bcond_without	perl
 %bcond_without	esd
 #
-%define		_snap	20031122
+%define		_snap	20031202
 Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.0
-Release:	2.%{_snap}.1
+Release:	1.%{_snap}.1
 Epoch:		2
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://gg.tiwek.com/gg2/snapshots/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	2fe054116952b8e7ee63c72845ec88fa
+# Source0-md5:	deec76afaa62cc196ef7cad8253d76e6
 Source1:	%{name}.desktop
 URL:		http://www.gadu.gnu.pl/
 %{?with_arts:BuildRequires:	arts-devel}
