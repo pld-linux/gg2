@@ -4,6 +4,7 @@
 %bcond_without	esd		# without EsounD sound support
 %bcond_without	dbus		# without DBUS support
 %bcond_without	gtkspell	# without gtkspell support
+%bcond_without	xosd		# without xosd support
 %bcond_with	perl		# with perl support
 #
 Summary:	GNU Gadu 2 - free talking
@@ -34,7 +35,7 @@ BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	pkgconfig
-BuildRequires:	xosd-devel >= 2.0.0
+%{?with_xosd:BuildRequires:	xosd-devel >= 2.0.0}
 %if %{with perl}
 BuildRequires:	perl-devel
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
@@ -440,7 +441,7 @@ Motywy graficzne dla GUI GNU Gadu 2.
  	--with-gadu \
  	--with-tlen \
  	--with-jabber \
- 	--with-xosd \
+ 	--with%{!?with_xosd:out}-xosd \
  	--with-sms \
  	--with-docklet_system_tray \
 	--with-docklet_dockapp \
@@ -541,9 +542,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gg2/libsound_arts_plugin.so
 %endif
 
+%if %{with xosd}
 %files plugin-xosd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libxosd_plugin.so
+%endif
 
 %files plugin-docklet-system-tray
 %defattr(644,root,root,755)
