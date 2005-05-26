@@ -11,13 +11,13 @@ Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.2.5
-Release:	0.1
+Version:	2.2.6
+Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
-# Source0-md5:	41e79ac1c4f5d4cca5ac0b68aeac5830
+# Source0-md5:	b293127984d300cbd8cbf0a89e6b8fa8
 URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
 %{?with_arts:BuildRequires:	artsc-devel}
@@ -33,7 +33,7 @@ BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
-BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	gnutls-devel
 BuildRequires:	pkgconfig
 %{?with_xosd:BuildRequires:	xosd-devel >= 2.0.0}
 %if %{with perl}
@@ -319,25 +319,6 @@ Manda mensajes SMS a móviles vía puertas del Web.
 Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki
 WWW.
 
-#%package plugin-remote
-#Summary:	Remote access from other applications
-#Summary(es):	Acceso remoto desde otras aplicaciones
-#Summary(pl):	Dostêp do programu z innych aplikacji
-#Group:		Applications/Communications
-#Requires:	%{name} = %{epoch}:%{version}-%{release}
-#Provides:	gg2-ui
-#Provides:	gg2-remote = %{epoch}:%{version}-%{release}
-#Obsoletes:	gg2-remote
-
-#%description plugin-remote
-#Make possible exchange data with other applications.
-
-#%description plugin-remote -l es
-#Permite intercambiar los datos con otras aplicaciones.
-
-#%description plugin-remote -l pl
-#Wtyczka umo¿liwiaj±ca wymianê informacji z innymi aplikacjami.
-
 %package plugin-history-external
 Summary:	Allow to view GNU Gadu chat history
 Summary(pl):	Przegl±danie historii rozmów GNU Gadu
@@ -458,7 +439,6 @@ Motywy graficzne dla GUI GNU Gadu 2.
 	--with%{!?with_dbus:out}-dbus \
 	%{?with_dbus:--with-dbus-dir=%{_datadir}/dbus-1/services/} \
 	--%{?with_perl:with}%{!?with_perl:without}-perl 
-# 	--with-remote
 
 %{__make}
 
@@ -560,10 +540,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gg2/libsms_plugin.so
 
-#%files plugin-remote
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_libdir}/gg2/libremote_plugin.so
-
 %files plugin-history-external
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gghist
@@ -598,7 +574,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/gg2/pixmaps/icons/modern
 %dir %{_datadir}/gg2/pixmaps/icons/rozgwiazda
 %dir %{_datadir}/gg2/pixmaps/icons/ghosts
-%dir %{_datadir}/gg2/pixmaps/icons/tlen-classic
 %{_datadir}/gg2/pixmaps/icons/bubble/*.png
 %{_datadir}/gg2/pixmaps/icons/bubble/README
 %{_datadir}/gg2/pixmaps/icons/classic/*.png
@@ -609,4 +584,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gg2/pixmaps/icons/rozgwiazda/license.txt
 %{_datadir}/gg2/pixmaps/icons/ghosts/*.png
 %{_datadir}/gg2/pixmaps/icons/ghosts/README
-%{_datadir}/gg2/pixmaps/icons/tlen-classic/*.png
