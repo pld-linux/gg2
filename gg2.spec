@@ -12,7 +12,7 @@ Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.2.6
-Release:	1
+Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
@@ -33,7 +33,7 @@ BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libtlen-devel
 BuildRequires:	libtool
 BuildRequires:	loudmouth-devel >= 0.17.1
-BuildRequires:	gnutls-devel
+BuildRequires:	gnutls-devel >= 1.2.5
 BuildRequires:	pkgconfig
 %{?with_xosd:BuildRequires:	xosd-devel >= 2.0.0}
 %if %{with perl}
