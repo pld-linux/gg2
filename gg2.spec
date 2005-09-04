@@ -12,7 +12,7 @@ Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.2.7
-Release:	1
+Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
@@ -26,7 +26,7 @@ Patch2:		%{name}-erasms.patch
 %{?with_gtkspell:BuildRequires:	aspell-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
-%{?with_dbus:BuildRequires:	dbus-glib-devel >= 0.22}
+%{?with_dbus:BuildRequires:	dbus-glib-devel >= 0.33}
 %{?with_esd:BuildRequires:	esound-devel >= 0.2.7}
 BuildRequires:	gettext-devel >= 0.11.0
 BuildRequires:	glib2-devel >= 2.2.0
