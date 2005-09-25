@@ -1,40 +1,6 @@
-diff -urN gg2-2.2.7.orig/lib/plugins.c gg2-2.2.7/lib/plugins.c
---- gg2-2.2.7.orig/lib/plugins.c	2005-08-21 23:08:02.158950496 +0200
-+++ gg2-2.2.7/lib/plugins.c	2005-08-21 23:08:14.883016144 +0200
-@@ -141,7 +141,7 @@
- 	{
- 		*syms[i].ptr = dlsym(handler, syms[i].name);
- 
--		if ((error = dlerror()) != NULL)
-+		if ((error = (gchar *) dlerror()) != NULL)
- 		{
- 			g_warning(_("core: %s have no %s: %s\n"), path, syms[i].name, error);
- 			dlclose(handler);
-diff -urN gg2-2.2.7.orig/src/plugins/aaway/aaway.c gg2-2.2.7/src/plugins/aaway/aaway.c
---- gg2-2.2.7.orig/src/plugins/aaway/aaway.c	2005-08-21 23:08:02.189945784 +0200
-+++ gg2-2.2.7/src/plugins/aaway/aaway.c	2005-08-21 23:08:14.889015232 +0200
-@@ -250,8 +250,8 @@
- static gpointer aaway_preferences(gpointer user_data)
- {
- 	GGaduDialog *d = ggadu_dialog_new(GGADU_DIALOG_CONFIG, _("Auto-Away Preferences"), "update config");
--	print_debug("%s: Preferences\n", "aaway");
- 	gchar *utf = NULL;
-+	print_debug("%s: Preferences\n", "aaway");
- 	ggadu_dialog_add_entry(d, GGADU_AAWAY_CONFIG_ENABLE_AUTOAWAY, _("Enable auto-away"), VAR_BOOL, (gpointer) ggadu_config_var_get(handler, "enable"), VAR_FLAG_ADVANCED);
- 	ggadu_dialog_add_entry(d, GGADU_AAWAY_CONFIG_INTERVAL, _("Auto away after time (minutes)"), VAR_INT, (gpointer) ggadu_config_var_get(handler, "interval"), VAR_FLAG_NONE);
- 	ggadu_dialog_add_entry(d, GGADU_AAWAY_CONFIG_ENABLE_AWAY_MSG, _("Enable away message"), VAR_BOOL,
-diff -urN gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.7/src/plugins/dbus/dbus_plugin.c
---- gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c	2005-08-21 23:08:02.163949736 +0200
-+++ gg2-2.2.7/src/plugins/dbus/dbus_plugin.c	2005-08-21 23:08:14.889015232 +0200
-@@ -45,7 +45,7 @@
- 
- static DBusHandlerResult ofi_getPresence(DBusConnection * connection, DBusMessage * message, gpointer user_data)
- {
--	/* URI of the user which we have to return presence. ex.  gg://13245  */
-+	/* URI of the user which we have to return presence. ex.  gg:13245  */
- 	gchar *contactURI = NULL;
- 	gchar *contactURIhandler = NULL;
- 	gchar *contactURIdata = NULL;
+diff -u -r gg2-2.2.8.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.8/src/plugins/dbus/dbus_plugin.c
+--- gg2-2.2.8.orig/src/plugins/dbus/dbus_plugin.c	2005-01-10 10:39:11.000000000 +0100
++++ gg2-2.2.8/src/plugins/dbus/dbus_plugin.c	2005-09-18 00:11:48.000000000 +0200
 @@ -79,6 +79,7 @@
  			{
  				DBusMessage *return_message;
@@ -43,16 +9,18 @@ diff -urN gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.7/src/plugins/db
  				
  				return_message = dbus_message_new_method_return(message);
  
-@@ -107,13 +108,22 @@
+@@ -106,14 +107,23 @@
+ 					
  					/* not sure about this g_strdup() */
  					status_descr = k->status_descr ? g_strdup(k->status_descr) : "";
- 					
+-					
 -					dbus_message_append_args(return_message, DBUS_TYPE_STRING, return_status, DBUS_TYPE_STRING, status_descr,DBUS_TYPE_STRING, "", DBUS_TYPE_INVALID);
-+					dbus_message_append_args(return_message, 
-+							DBUS_TYPE_STRING, &return_status, 
-+							DBUS_TYPE_STRING, &status_descr, 
-+							DBUS_TYPE_STRING, &arg_empty, 
-+							DBUS_TYPE_INVALID);
++
++                                        dbus_message_append_args(return_message,
++                                                       DBUS_TYPE_STRING, &return_status,
++                                                       DBUS_TYPE_STRING, &status_descr,
++                                                       DBUS_TYPE_STRING, &arg_empty,
++                                                       DBUS_TYPE_INVALID);
  					GGaduContact_free(k);
  				}
  				else
@@ -60,11 +28,11 @@ diff -urN gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.7/src/plugins/db
 +					const gchar *arg_unknown = "Unknown";
  					print_debug("NOT FOUND: Unknown");
 -					dbus_message_append_args(return_message, DBUS_TYPE_STRING, "Unknown", DBUS_TYPE_STRING, "",DBUS_TYPE_STRING, "", DBUS_TYPE_INVALID);
-+					dbus_message_append_args(return_message, 
-+ 							DBUS_TYPE_STRING, &arg_unknown, 
-+ 							DBUS_TYPE_STRING, &arg_empty, 
-+ 							DBUS_TYPE_STRING, &arg_empty, 
-+ 							DBUS_TYPE_INVALID);
++                                       dbus_message_append_args(return_message,
++                                                       DBUS_TYPE_STRING, &arg_unknown,
++                                                       DBUS_TYPE_STRING, &arg_empty,
++                                                       DBUS_TYPE_STRING, &arg_empty,
++                                                       DBUS_TYPE_INVALID);
  				}
  				/* I can free here because signal return copy of GGaduContact */
  				dbus_connection_send(connection, return_message, NULL);
@@ -76,24 +44,6 @@ diff -urN gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.7/src/plugins/db
  		g_strfreev(URItab);
  		g_free(contactURIhandler);
  	}
-@@ -132,14 +141,14 @@
- 
- static DBusHandlerResult ofi_getProtocols(DBusConnection * connection, DBusMessage * message, gpointer user_data)
- {
-+	GGaduProtocol *p = NULL;
-+	gpointer key, index;
-+	DBusMessage *return_message;
- 	DBusError error;
- 	dbus_error_init(&error);
- 
- 	print_debug("getProtocols");
- 
--	GGaduProtocol *p = NULL;
--	gpointer key, index;
--	DBusMessage *return_message;
- 
- 	return_message = dbus_message_new_method_return(message);
- 
 @@ -154,7 +163,7 @@
  			if (p)
  			{
@@ -103,15 +53,6 @@ diff -urN gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.7/src/plugins/db
  			}
  
  			index = ggadu_repo_value_next("_protocols_", REPO_VALUE_PROTOCOL, &key, index);
-@@ -171,7 +180,7 @@
- 
- static DBusHandlerResult ofi_openChat(DBusConnection * connection, DBusMessage * message, gpointer user_data)
- {
--	/* URI of the user which we have to return presence. ex.  gg://13245  */
-+	/* URI of the user which we have to return presence. ex.  gg:13245  */
- 	gchar *contactURI = NULL;
- 	gchar *contactURIhandler = NULL;
- 	gchar *contactURIdata = NULL;
 @@ -224,10 +233,9 @@
  		}
  		g_strfreev(URItab);
@@ -142,167 +83,4 @@ diff -urN gg2-2.2.7.orig/src/plugins/dbus/dbus_plugin.c gg2-2.2.7/src/plugins/db
  	if (dbus_error_is_set(&derror))
  	{
  		g_warning("DBUS: Failed to acquire IM service. %s", derror.message);
-diff -urN gg2-2.2.7.orig/src/plugins/docklet/dockapp/dockapp_plugin.c gg2-2.2.7/src/plugins/docklet/dockapp/dockapp_plugin.c
---- gg2-2.2.7.orig/src/plugins/docklet/dockapp/dockapp_plugin.c	2005-08-21 23:08:02.182946848 +0200
-+++ gg2-2.2.7/src/plugins/docklet/dockapp/dockapp_plugin.c	2005-08-21 23:08:14.890015080 +0200
-@@ -109,6 +109,7 @@
- //Przerysowuje elementy dynamiczne pixmapy
- void draw_pixmap()
- {
-+	int i;
- 
- 	//tlo ikony
- 	gdk_draw_pixmap(launch_pixmap, gc , source_pixmap , 0 , 0 , 0 , 0 , 64 ,64);
-@@ -121,7 +122,6 @@
- 	if ((icon2_img != NULL) && ((blink_no % 2) == 1))
- 		gdk_draw_pixbuf(launch_pixmap, gc, icon2_img, 0, 0, icon2.x, icon2.y, icon2.width, icon2.height, GDK_RGB_DITHER_NONE, 0, 0);
- 
--	int i;
- 
- 	//Wyswietl 3 nicki w kolorach zalenych od statusu	
- 	for (i = 0; i < NNICK; i++)
-@@ -468,6 +468,10 @@
- //Funkcja startowa pluginu, exportowana,musi byc
- void start_plugin()
- {
-+	XWMHints wmhints;
-+	GGaduMenu *root;
-+	GGaduMenu *item_tl;
-+
- 	print_debug("%s : start\n", GGadu_PLUGIN_NAME);
- 
- 	//Etykietki
-@@ -529,7 +533,6 @@
- 	redraw();
- 
- 	//Windowmaker hints - tu sprowadza okno do ikony
--	XWMHints wmhints;
- 	wmhints.initial_state = WithdrawnState;
- 	wmhints.flags = StateHint | IconWindowHint | IconPositionHint | WindowGroupHint;
- 	wmhints.icon_x = 0;
-@@ -553,8 +556,8 @@
- 	register_signal(handler, "docklet set default icon");
- 	ggadu_repo_watch_add(NULL, REPO_ACTION_VALUE_CHANGE, REPO_VALUE_CONTACT, notify_callback);
- 
--	GGaduMenu *root = ggadu_menu_create();
--	GGaduMenu *item_tl = ggadu_menu_add_item(root, "_Dockapp", NULL, NULL);
-+	root = ggadu_menu_create();
-+	item_tl = ggadu_menu_add_item(root, "_Dockapp", NULL, NULL);
- 		
- 	ggadu_menu_add_submenu(item_tl, ggadu_menu_new_item(_("_Preferences"), user_preferences_action, NULL));
- 
-diff -urN gg2-2.2.7.orig/src/plugins/GUI/gui_chat.c gg2-2.2.7/src/plugins/GUI/gui_chat.c
---- gg2-2.2.7.orig/src/plugins/GUI/gui_chat.c	2005-08-21 23:08:02.174948064 +0200
-+++ gg2-2.2.7/src/plugins/GUI/gui_chat.c	2005-08-21 23:08:14.884015992 +0200
-@@ -851,6 +851,7 @@
- 	gint percent = 0;
- 	gint number_of_workspaces = 0;
- 	GtkWidget *chat_notebook_paned_size = NULL;
-+	PangoFontDescription *font_desc;
- 
- 	if (!session || !plugin_name || !id)
- 		return NULL;
-@@ -1117,7 +1118,6 @@
- 
-     /* set font of the message editing text_view */
- 
--    PangoFontDescription *font_desc;
-     fontstr = ggadu_config_var_get(gui_handler, "msg_out_edit_font");
-     font_desc = pango_font_description_from_string (fontstr);
-     gtk_widget_modify_font (input, font_desc);
-diff -urN gg2-2.2.7.orig/src/plugins/GUI/gui_preferences.c gg2-2.2.7/src/plugins/GUI/gui_preferences.c
---- gg2-2.2.7.orig/src/plugins/GUI/gui_preferences.c	2005-08-21 23:08:02.177947608 +0200
-+++ gg2-2.2.7/src/plugins/GUI/gui_preferences.c	2005-08-21 23:08:14.886015688 +0200
-@@ -1322,6 +1322,10 @@
- 	{
- 		GSList *combo_theme_slist;
- 		GSList *combo_icons_slist;
-+		GSList *combo_skins_slist;
-+#ifdef USE_GTKSPELL
-+		GSList *dict_slist;
-+#endif
- 		if (plugins_updated)
- 		{
- 			GIOChannel *ch = g_io_channel_new_file(g_build_filename(config->configdir, "modules.load", NULL), "w",
-@@ -1355,7 +1359,7 @@
- 		ggadu_config_var_set(gui_handler, "use_spell", (gpointer) gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(entry)));
- 
- 		entry = g_object_get_data(G_OBJECT(chat_vbox), "combo_spell");
--		GSList *dict_slist = g_object_get_data(G_OBJECT(entry), "dictionary_slist");
-+		dict_slist = g_object_get_data(G_OBJECT(entry), "dictionary_slist");
- 
- 		g_return_if_fail(entry != NULL);
- 
-@@ -1441,7 +1445,7 @@
- 		entry = g_object_get_data(G_OBJECT(adv_vbox), "combo_skins");
- 		g_return_if_fail(entry != NULL);
- 
--		GSList *combo_skins_slist = g_object_get_data(G_OBJECT(entry), "combo_skins_slist");
-+		combo_skins_slist = g_object_get_data(G_OBJECT(entry), "combo_skins_slist");
- 
- 		if (gtk_combo_box_get_active(GTK_COMBO_BOX(entry))) {
- 		    ggadu_config_var_set(gui_handler, "skin", (gpointer) g_strdup(g_slist_nth_data(combo_skins_slist, gtk_combo_box_get_active(GTK_COMBO_BOX(entry)))));
-diff -urN gg2-2.2.7.orig/src/plugins/GUI/gui_userview.c gg2-2.2.7/src/plugins/GUI/gui_userview.c
---- gg2-2.2.7.orig/src/plugins/GUI/gui_userview.c	2005-08-21 23:08:02.176947760 +0200
-+++ gg2-2.2.7/src/plugins/GUI/gui_userview.c	2005-08-21 23:14:49.377043936 +0200
-@@ -101,6 +101,7 @@
- 		if (ggadu_config_var_get(gui_handler, "descr_on_list") && k->status_descr) {
- 		    gchar *descr = ggadu_convert("UTF-8", "ISO-8859-2", k->status_descr);
- 		    gchar *tmp = NULL;
-+		    gchar *markup, *markup_descr;
- 		    
- 		    if(ggadu_config_var_get(gui_handler, "wrap_descr"))
- 		    {
-@@ -162,10 +163,10 @@
- 			tmp = NULL;
- 		    } 
- 
--		    gchar *markup_descr = ggadu_config_var_get(gui_handler, "wrap_descr") ?
-+		    markup_descr = ggadu_config_var_get(gui_handler, "wrap_descr") ?
- 		                          g_markup_escape_text(descr, strlen(descr)) :
- 			                  g_markup_escape_text(k->status_descr, strlen(k->status_descr));
--		    gchar *markup = g_strdup_printf("%s\n<small>%s</small>", k->nick, markup_descr);
-+		    markup = g_strdup_printf("%s\n<small>%s</small>", k->nick, markup_descr);
- 		    g_object_set(G_OBJECT(renderer), "text", NULL, "markup", markup, NULL);
- 		    g_free(markup_descr);
- 		    g_free(markup);
-diff -urN gg2-2.2.7.orig/src/plugins/jabber/jabber_login.c gg2-2.2.7/src/plugins/jabber/jabber_login.c
---- gg2-2.2.7.orig/src/plugins/jabber/jabber_login.c	2005-08-21 23:08:02.185946392 +0200
-+++ gg2-2.2.7/src/plugins/jabber/jabber_login.c	2005-08-21 23:08:14.890015080 +0200
-@@ -92,16 +92,16 @@
- 
- 	if (!jabber_data.connection || !lm_connection_is_open(jabber_data.connection))
- 	{
--		portstr ? print_debug("jabber: Connecting to %s:%s with %s", server, portstr, jid) :
--			print_debug("jabber: Connecting to %s with %s", server, jid);
--		jabber_data.connection = lm_connection_new(server);
--		lm_connection_set_keep_alive_rate(jabber_data.connection,30);
--
- 		/* proxy setting taken from EKG project */
- 		gint jabber_proxy_enabled = 0;
- 		gchar *jabber_proxy_host = NULL;
- 		gint jabber_proxy_port;
- 
-+		portstr ? print_debug("jabber: Connecting to %s:%s with %s", server, portstr, jid) :
-+			print_debug("jabber: Connecting to %s with %s", server, jid);
-+		jabber_data.connection = lm_connection_new(server);
-+		lm_connection_set_keep_alive_rate(jabber_data.connection,30);
-+
- 		if (ggadu_config_var_check(jabber_handler, "proxy"))
- 		{
- 			gchar **auth = array_make((gchar *) ggadu_config_var_get(jabber_handler, "proxy"), "@", 0, 0, 0);
-diff -urN gg2-2.2.7.orig/src/plugins/jabber/jabber_plugin.c gg2-2.2.7/src/plugins/jabber/jabber_plugin.c
---- gg2-2.2.7.orig/src/plugins/jabber/jabber_plugin.c	2005-08-21 23:08:02.185946392 +0200
-+++ gg2-2.2.7/src/plugins/jabber/jabber_plugin.c	2005-08-21 23:08:14.892014776 +0200
-@@ -1503,9 +1503,10 @@
- 
- 	if (ggadu_config_var_get(jabber_handler, "autoconnect"))
- 	{
-+		GGaduStatusPrototype *sp;
- 		gint auto_status = (gint) ggadu_config_var_get(jabber_handler, "auto_status");
- 		print_debug("jabber: autoconneting");
--		GGaduStatusPrototype *sp = ggadu_find_status_prototype(p, auto_status ? auto_status : JABBER_STATUS_AVAILABLE);
-+		sp = ggadu_find_status_prototype(p, auto_status ? auto_status : JABBER_STATUS_AVAILABLE);
- 		jabber_change_status(sp, FALSE);
- 		GGaduStatusPrototype_free(sp);
- 	}
+
