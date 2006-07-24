@@ -11,8 +11,8 @@ Summary:	GNU Gadu 2 - free talking
 Summary(es):	GNU Gadu 2 - charlar libremente
 Summary(pl):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
-Version:	2.2.8
-Release:	2
+Version:	2.2.9
+Release:	1
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
