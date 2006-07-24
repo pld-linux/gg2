@@ -17,7 +17,7 @@ Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://dl.sourceforge.net/ggadu/%{name}-%{version}.tar.gz
-# Source0-md5:	d2d81ba30b54748d453e662d911ab227
+# Source0-md5:	e12c2153993dbbf66f8cefa3c628e7cd
 URL:		http://www.gnugadu.org/
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-dbus.patch
