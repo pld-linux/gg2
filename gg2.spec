@@ -8,8 +8,8 @@
 %bcond_with	perl		# with perl support
 #
 Summary:	GNU Gadu 2 - free talking
-Summary(es):	GNU Gadu 2 - charlar libremente
-Summary(pl):	GNU Gadu 2 - wolne gadanie
+Summary(es.UTF-8):   GNU Gadu 2 - charlar libremente
+Summary(pl.UTF-8):   GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.3.0
 Release:	1
@@ -50,18 +50,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Gadu-Gadu, Tlen.pl and others instant messenger client with
 GTK+2 GUI on GNU/GPL.
 
-%description -l es
+%description -l es.UTF-8
 Un cliente para Gadu-Gadu, Tlen.pl y otros protocolos con un GUI de
 GTK+2, bajo la licencia GNU/GPL.
 
-%description -l pl
-Klient Gadu-Gadu, Tlen.pl oraz innych protoko³ów z GUI pod GTK+2 na
+%description -l pl.UTF-8
+Klient Gadu-Gadu, Tlen.pl oraz innych protokoÅ‚Ã³w z GUI pod GTK+2 na
 licencji GNU/GPL.
 
 %package devel
 Summary:	Headers for libgg2_core library to develop plugins
-Summary(es):	Cabeceras para la biblioteca libgg2_core para desarrollar plugins
-Summary(pl):	Pliki nag³ówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
+Summary(es.UTF-8):   Cabeceras para la biblioteca libgg2_core para desarrollar plugins
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel
@@ -71,18 +71,18 @@ Requires:	perl-devel
 This package contains header files for libgg2_core library, needed to
 develop plugins for GNU Gadu 2.
 
-%description devel -l es
+%description devel -l es.UTF-8
 Este paquete contiene los ficheros de cabeceras de la biblioteca
 libgg2_core necesarios para desarrollar plugins para GNU Gadu 2.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe biblioteki libgg2_core, potrzebne
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe biblioteki libgg2_core, potrzebne
 do rozwijania wtyczek do GNU Gadu 2.
 
 %package plugin-gui-gtk+2
 Summary:	GTK+2 GUI plugin
-Summary(es):	Plugin de GUI en GTK+2
-Summary(pl):	Wtyczka z GUI w GTK+2
+Summary(es.UTF-8):   Plugin de GUI en GTK+2
+Summary(pl.UTF-8):   Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-ui
@@ -93,32 +93,32 @@ Obsoletes:	gg-gnome
 %description plugin-gui-gtk+2
 GTK+2 GUI plugin for GNU Gadu 2.
 
-%description plugin-gui-gtk+2 -l es
+%description plugin-gui-gtk+2 -l es.UTF-8
 Un plugin con un GUI en GTK+2 para GNU Gadu 2.
 
-%description plugin-gui-gtk+2 -l pl
+%description plugin-gui-gtk+2 -l pl.UTF-8
 Wtyczka z GUI w GTK+2 do GNU Gadu 2.
 
 %package emoticons
 Summary:	Emoticons
-Summary(es):	Emoticons
-Summary(pl):	Emotikony
+Summary(es.UTF-8):   Emoticons
+Summary(pl.UTF-8):   Emotikony
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description emoticons
 Emotions icons and description files.
 
-%description emoticons -l es
-Iconas de emociones y sus ficheros de descripción.
+%description emoticons -l es.UTF-8
+Iconas de emociones y sus ficheros de descripciÃ³n.
 
-%description emoticons -l pl
+%description emoticons -l pl.UTF-8
 Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 
 %package plugin-gadu-gadu
 Summary:	Gadu-Gadu plugin
-Summary(es):	Plugin de Gadu-Gadu
-Summary(pl):	Wtyczka protoko³u Gadu-Gadu
+Summary(es.UTF-8):   Plugin de Gadu-Gadu
+Summary(pl.UTF-8):   Wtyczka protokoÅ‚u Gadu-Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-gadu-gadu = %{epoch}:%{version}-%{release}
@@ -127,16 +127,16 @@ Obsoletes:	gg2-gadu-gadu
 %description plugin-gadu-gadu
 Gadu-Gadu protocol plugin.
 
-%description plugin-gadu-gadu -l es
+%description plugin-gadu-gadu -l es.UTF-8
 Un plugin para el protocolo Gadu-Gadu.
 
-%description plugin-gadu-gadu -l pl
-Wtyczka protoko³u Gadu-Gadu.
+%description plugin-gadu-gadu -l pl.UTF-8
+Wtyczka protokoÅ‚u Gadu-Gadu.
 
 %package plugin-tlen
 Summary:	Tlen.pl plugin
-Summary(es):	Plugin de Tlen.pl
-Summary(pl):	Wtyczka protoko³u Tlen.pl
+Summary(es.UTF-8):   Plugin de Tlen.pl
+Summary(pl.UTF-8):   Wtyczka protokoÅ‚u Tlen.pl
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-tlen = %{epoch}:%{version}-%{release}
@@ -145,16 +145,16 @@ Obsoletes:	gg2-tlen
 %description plugin-tlen
 Tlen.pl protocol plugin.
 
-%description plugin-tlen -l es
+%description plugin-tlen -l es.UTF-8
 Un plugin para el protocolo Tlen.pl.
 
-%description plugin-tlen -l pl
-Wtyczka protoko³u Tlen.pl.
+%description plugin-tlen -l pl.UTF-8
+Wtyczka protokoÅ‚u Tlen.pl.
 
 %package plugin-jabber
 Summary:	Jabber.org plugin
-Summary(es):	Plugin de Jabber.org
-Summary(pl):	Wtyczka protoko³u Jabber
+Summary(es.UTF-8):   Plugin de Jabber.org
+Summary(pl.UTF-8):   Wtyczka protokoÅ‚u Jabber
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	loudmouth >= 0.16-4
@@ -164,16 +164,16 @@ Obsoletes:	gg2-jabber
 %description plugin-jabber
 Jabber protocol plugin.
 
-%description plugin-jabber -l es
+%description plugin-jabber -l es.UTF-8
 Un plugin para el protocolo Jabber.
 
-%description plugin-jabber -l pl
-Wtyczka protoko³u Jabber.
+%description plugin-jabber -l pl.UTF-8
+Wtyczka protokoÅ‚u Jabber.
 
 %package plugin-sound-esd
 Summary:	Sound support with ESD
-Summary(es):	Soporte de sonido a través de ESD
-Summary(pl):	Obs³uga d¼wiêku poprzez ESD
+Summary(es.UTF-8):   Soporte de sonido a travÃ©s de ESD
+Summary(pl.UTF-8):   ObsÅ‚uga dÅºwiÄ™ku poprzez ESD
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sound-esd = %{epoch}:%{version}-%{release}
@@ -182,16 +182,16 @@ Obsoletes:	gg2-sound-esd
 %description plugin-sound-esd
 Sound support with ESD.
 
-%description plugin-sound-esd -l es
-Soporte de sonido a través de ESD.
+%description plugin-sound-esd -l es.UTF-8
+Soporte de sonido a travÃ©s de ESD.
 
-%description plugin-sound-esd -l pl
-Obs³uga d¼wiêku poprzez ESD.
+%description plugin-sound-esd -l pl.UTF-8
+ObsÅ‚uga dÅºwiÄ™ku poprzez ESD.
 
 %package plugin-sound-oss
 Summary:	OSS sound support
-Summary(es):	Soporte de sonido a través de OSS
-Summary(pl):	Obs³uga d¼wiêku OSS
+Summary(es.UTF-8):   Soporte de sonido a travÃ©s de OSS
+Summary(pl.UTF-8):   ObsÅ‚uga dÅºwiÄ™ku OSS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	%{name}-sound-oss = %{epoch}:%{version}-%{release}
@@ -200,16 +200,16 @@ Obsoletes:	%{name}-sound-oss
 %description plugin-sound-oss
 OSS sound support.
 
-%description plugin-sound-oss -l es
-Soporte de sonido a través de OSS.
+%description plugin-sound-oss -l es.UTF-8
+Soporte de sonido a travÃ©s de OSS.
 
-%description plugin-sound-oss -l pl
-Obs³uga d¼wiêku OSS.
+%description plugin-sound-oss -l pl.UTF-8
+ObsÅ‚uga dÅºwiÄ™ku OSS.
 
 %package plugin-sound-external
 Summary:	Sound support with external player
-Summary(es):	Soporte de sonido vía un reproductor externo
-Summary(pl):	Obs³uga d¼wiêku przez zewnêtrzny program
+Summary(es.UTF-8):   Soporte de sonido vÃ­a un reproductor externo
+Summary(pl.UTF-8):   ObsÅ‚uga dÅºwiÄ™ku przez zewnÄ™trzny program
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sound-external = %{epoch}:%{version}-%{release}
@@ -218,16 +218,16 @@ Obsoletes:	gg2-sound-external
 %description plugin-sound-external
 Sound support with external player.
 
-%description plugin-sound-external -l es
-Soporte de sonido a través de un reproductor externo.
+%description plugin-sound-external -l es.UTF-8
+Soporte de sonido a travÃ©s de un reproductor externo.
 
-%description plugin-sound-external -l pl
-Obs³uga d¼wiêku przez zewnêtrzny program.
+%description plugin-sound-external -l pl.UTF-8
+ObsÅ‚uga dÅºwiÄ™ku przez zewnÄ™trzny program.
 
 %package plugin-sound-aRts
 Summary:	Sound support with aRts
-Summary(es):	Soporte de sonido a través de aRts
-Summary(pl):	Obs³uga d¼wiêku poprzez aRts
+Summary(es.UTF-8):   Soporte de sonido a travÃ©s de aRts
+Summary(pl.UTF-8):   ObsÅ‚uga dÅºwiÄ™ku poprzez aRts
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sound-aRts = %{epoch}:%{version}-%{release}
@@ -236,16 +236,16 @@ Obsoletes:	gg2-sound-aRts
 %description plugin-sound-aRts
 Sound support with aRts.
 
-%description plugin-sound-aRts -l es
-Soporte de sonido a través de aRts.
+%description plugin-sound-aRts -l es.UTF-8
+Soporte de sonido a travÃ©s de aRts.
 
-%description plugin-sound-aRts -l pl
-Obs³uga d¼wiêku poprzez aRts.
+%description plugin-sound-aRts -l pl.UTF-8
+ObsÅ‚uga dÅºwiÄ™ku poprzez aRts.
 
 %package plugin-xosd
 Summary:	Support for X On Screen Display
-Summary(es):	Soporte para plasmar mensajes sobre el fondo de X
-Summary(pl):	Wy¶wietlanie komunikatów na ekranie X
+Summary(es.UTF-8):   Soporte para plasmar mensajes sobre el fondo de X
+Summary(pl.UTF-8):   WyÅ›wietlanie komunikatÃ³w na ekranie X
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-xosd = %{epoch}:%{version}-%{release}
@@ -254,16 +254,16 @@ Obsoletes:	gg2-xosd
 %description plugin-xosd
 Support for X On Screen Display.
 
-%description plugin-xosd -l es
+%description plugin-xosd -l es.UTF-8
 Soporte para plasmar mensajes sobre el fondo (XOSD).
 
-%description plugin-xosd -l pl
-Wy¶wietlanie komunikatów na ekranie X.
+%description plugin-xosd -l pl.UTF-8
+WyÅ›wietlanie komunikatÃ³w na ekranie X.
 
 %package plugin-docklet-system-tray
 Summary:	Support for Window Managers notification areas
-Summary(es):	Soporte para áreas de notificación de los Manejantes de Ventanas
-Summary(pl):	Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien
+Summary(es.UTF-8):   Soporte para Ã¡reas de notificaciÃ³n de los Manejantes de Ventanas
+Summary(pl.UTF-8):   ObsÅ‚uga obszarÃ³w powiadomieÅ„ w rÃ³Å¼nych zarzÄ…dcach okien
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-docklet-system-tray = %{epoch}:%{version}-%{release}
@@ -273,17 +273,17 @@ Obsoletes:	gg2-docklet
 %description plugin-docklet-system-tray
 Support for Window Managers notification areas (GNOME, KDE).
 
-%description plugin-docklet-system-tray -l es
-Soporte para áreas de notificación de los Manejantes de Ventanas
+%description plugin-docklet-system-tray -l es.UTF-8
+Soporte para Ã¡reas de notificaciÃ³n de los Manejantes de Ventanas
 (GNOME, KDE).
 
-%description plugin-docklet-system-tray -l pl
-Obs³uga obszarów powiadomieñ w ró¿nych zarz±dcach okien (GNOME, KDE).
+%description plugin-docklet-system-tray -l pl.UTF-8
+ObsÅ‚uga obszarÃ³w powiadomieÅ„ w rÃ³Å¼nych zarzÄ…dcach okien (GNOME, KDE).
 
 %package plugin-docklet-dockapp
 Summary:	Support for WindowMaker-style dockapp
-Summary(es):	Soporte de dockapp estilo WindowMaker
-Summary(pl):	Obs³uga dokowalnego apletu zgodnego z WindowMakerem
+Summary(es.UTF-8):   Soporte de dockapp estilo WindowMaker
+Summary(pl.UTF-8):   ObsÅ‚uga dokowalnego apletu zgodnego z WindowMakerem
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-docklet-dockapp = %{epoch}:%{version}-%{release}
@@ -295,16 +295,16 @@ Obsoletes:	gg-wm-applet
 %description plugin-docklet-dockapp
 Support for WindowMaker-style dockapp.
 
-%description plugin-docklet-dockapp -l es
+%description plugin-docklet-dockapp -l es.UTF-8
 Suporte de dockapp estilo WindowMaker.
 
-%description plugin-docklet-dockapp -l pl
-Obs³uga dokowalnego apletu zgodnego z WindowMakerem.
+%description plugin-docklet-dockapp -l pl.UTF-8
+ObsÅ‚uga dokowalnego apletu zgodnego z WindowMakerem.
 
 %package plugin-sms
 Summary:	SMS Gateway
-Summary(es):	Puerta SMS
-Summary(pl):	Bramka SMS
+Summary(es.UTF-8):   Puerta SMS
+Summary(pl.UTF-8):   Bramka SMS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sms = %{epoch}:%{version}-%{release}
@@ -313,16 +313,16 @@ Obsoletes:	gg2-sms
 %description plugin-sms
 Send SMS to cellular phones via web gateways.
 
-%description plugin-sms -l es
-Manda mensajes SMS a móviles vía puertas del Web.
+%description plugin-sms -l es.UTF-8
+Manda mensajes SMS a mÃ³viles vÃ­a puertas del Web.
 
-%description plugin-sms -l pl
-Wtyczka wysy³aj±ca wiadomo¶ci SMS na telefony komórkowe przez bramki
+%description plugin-sms -l pl.UTF-8
+Wtyczka wysyÅ‚ajÄ…ca wiadomoÅ›ci SMS na telefony komÃ³rkowe przez bramki
 WWW.
 
 %package plugin-history-external
 Summary:	Allow to view GNU Gadu chat history
-Summary(pl):	Przegl±danie historii rozmów GNU Gadu
+Summary(pl.UTF-8):   PrzeglÄ…danie historii rozmÃ³w GNU Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gtk+2
@@ -332,13 +332,13 @@ Obsoletes:	gg2-history-external
 %description plugin-history-external
 Allow to view GNU Gadu chat history.
 
-%description plugin-history-external -l pl
-Wtyczka pozwalaj±ca przegl±daæ historiê rozmów GNU Gadu.
+%description plugin-history-external -l pl.UTF-8
+Wtyczka pozwalajÄ…ca przeglÄ…daÄ‡ historiÄ™ rozmÃ³w GNU Gadu.
 
 %package plugin-update
 Summary:	Check for new GNU Gadu newer version
-Summary(es):	Verifica si hay versiones nuevas de GNU Gadu
-Summary(pl):	Sprawdzanie dostêpno¶ci nowszej wersji GNU Gadu
+Summary(es.UTF-8):   Verifica si hay versiones nuevas de GNU Gadu
+Summary(pl.UTF-8):   Sprawdzanie dostÄ™pnoÅ›ci nowszej wersji GNU Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-update = %{epoch}:%{version}-%{release}
@@ -347,62 +347,62 @@ Obsoletes:	gg2-update
 %description plugin-update
 Check for new GNU Gadu newer version.
 
-%description plugin-update -l es
+%description plugin-update -l es.UTF-8
 Verifica si hay nuevas versiones de GNU Gadu.
 
-%description plugin-update -l pl
-Wtyczka sprawdzaj±ca, czy jest dostêpna nowsza wersja GNU Gadu.
+%description plugin-update -l pl.UTF-8
+Wtyczka sprawdzajÄ…ca, czy jest dostÄ™pna nowsza wersja GNU Gadu.
 
 %package plugin-dbus
 Summary:	Allow to communicate using D-BUS message bus
-Summary(pl):	Komunikacja za pomoc± magistrali D-BUS
+Summary(pl.UTF-8):   Komunikacja za pomocÄ… magistrali D-BUS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-dbus
 This plugin allows to communicate using D-BUS interface.
 
-%description plugin-dbus -l pl
-Wtyczka pozwala na komunikacjê za pomoc± magistrali D-BUS.
+%description plugin-dbus -l pl.UTF-8
+Wtyczka pozwala na komunikacjÄ™ za pomocÄ… magistrali D-BUS.
 
 %package plugin-auto-away
 Summary:	Auto-Away Plugin
-Summary(pl):	Wtyczka automatycznego stany zajêto¶ci
+Summary(pl.UTF-8):   Wtyczka automatycznego stany zajÄ™toÅ›ci
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-auto-away
 Auto-Away Plugin.
 
-%description plugin-auto-away -l pl
-Wtyczka automatycznego stany zajêto¶ci.
+%description plugin-auto-away -l pl.UTF-8
+Wtyczka automatycznego stany zajÄ™toÅ›ci.
 
 %package plugin-ignore
 Summary:	Allow to create list of ignored contacts
-Summary(pl):	Wtyczka pozwalaj±ca stworzyæ listê kontaktów ignorowanych
+Summary(pl.UTF-8):   Wtyczka pozwalajÄ…ca stworzyÄ‡ listÄ™ kontaktÃ³w ignorowanych
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description plugin-ignore
 Allow to create list of ignored contacts.
 
-%description plugin-ignore -l pl
-Wtyczka pozwalaj±ca stworzyæ listê kontaktów ignorowanych.
+%description plugin-ignore -l pl.UTF-8
+Wtyczka pozwalajÄ…ca stworzyÄ‡ listÄ™ kontaktÃ³w ignorowanych.
 
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
-Summary(es):	Temas para el GUI de GNU Gadu 2
-Summary(pl):	Motywy graficzne dla GUI GNU Gadu 2
+Summary(es.UTF-8):   Temas para el GUI de GNU Gadu 2
+Summary(pl.UTF-8):   Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
 Requires:	%{name}-gui-gtk+2 = %{epoch}:%{version}-%{release}
 
 %description themes
 Themes for GNU Gadu 2 GUI.
 
-%description themes -l es
+%description themes -l es.UTF-8
 Temas para el GUI de GNU Gadu 2.
 
-%description themes -l pl
+%description themes -l pl.UTF-8
 Motywy graficzne dla GUI GNU Gadu 2.
 
 %prep
