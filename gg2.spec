@@ -8,8 +8,8 @@
 %bcond_with	perl		# with perl support
 #
 Summary:	GNU Gadu 2 - free talking
-Summary(es.UTF-8):   GNU Gadu 2 - charlar libremente
-Summary(pl.UTF-8):   GNU Gadu 2 - wolne gadanie
+Summary(es.UTF-8):	GNU Gadu 2 - charlar libremente
+Summary(pl.UTF-8):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.3.0
 Release:	1
@@ -60,8 +60,8 @@ licencji GNU/GPL.
 
 %package devel
 Summary:	Headers for libgg2_core library to develop plugins
-Summary(es.UTF-8):   Cabeceras para la biblioteca libgg2_core para desarrollar plugins
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
+Summary(es.UTF-8):	Cabeceras para la biblioteca libgg2_core para desarrollar plugins
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgg2_core potrzebne do rozwijania wtyczek
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel
@@ -81,8 +81,8 @@ do rozwijania wtyczek do GNU Gadu 2.
 
 %package plugin-gui-gtk+2
 Summary:	GTK+2 GUI plugin
-Summary(es.UTF-8):   Plugin de GUI en GTK+2
-Summary(pl.UTF-8):   Wtyczka z GUI w GTK+2
+Summary(es.UTF-8):	Plugin de GUI en GTK+2
+Summary(pl.UTF-8):	Wtyczka z GUI w GTK+2
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-ui
@@ -101,8 +101,8 @@ Wtyczka z GUI w GTK+2 do GNU Gadu 2.
 
 %package emoticons
 Summary:	Emoticons
-Summary(es.UTF-8):   Emoticons
-Summary(pl.UTF-8):   Emotikony
+Summary(es.UTF-8):	Emoticons
+Summary(pl.UTF-8):	Emotikony
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -117,8 +117,8 @@ Zestaw ikon z emotikonami, oraz plikiem konfiguracyjnym.
 
 %package plugin-gadu-gadu
 Summary:	Gadu-Gadu plugin
-Summary(es.UTF-8):   Plugin de Gadu-Gadu
-Summary(pl.UTF-8):   Wtyczka protokołu Gadu-Gadu
+Summary(es.UTF-8):	Plugin de Gadu-Gadu
+Summary(pl.UTF-8):	Wtyczka protokołu Gadu-Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-gadu-gadu = %{epoch}:%{version}-%{release}
@@ -135,8 +135,8 @@ Wtyczka protokołu Gadu-Gadu.
 
 %package plugin-tlen
 Summary:	Tlen.pl plugin
-Summary(es.UTF-8):   Plugin de Tlen.pl
-Summary(pl.UTF-8):   Wtyczka protokołu Tlen.pl
+Summary(es.UTF-8):	Plugin de Tlen.pl
+Summary(pl.UTF-8):	Wtyczka protokołu Tlen.pl
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-tlen = %{epoch}:%{version}-%{release}
@@ -153,8 +153,8 @@ Wtyczka protokołu Tlen.pl.
 
 %package plugin-jabber
 Summary:	Jabber.org plugin
-Summary(es.UTF-8):   Plugin de Jabber.org
-Summary(pl.UTF-8):   Wtyczka protokołu Jabber
+Summary(es.UTF-8):	Plugin de Jabber.org
+Summary(pl.UTF-8):	Wtyczka protokołu Jabber
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	loudmouth >= 0.16-4
@@ -172,8 +172,8 @@ Wtyczka protokołu Jabber.
 
 %package plugin-sound-esd
 Summary:	Sound support with ESD
-Summary(es.UTF-8):   Soporte de sonido a través de ESD
-Summary(pl.UTF-8):   Obsługa dźwięku poprzez ESD
+Summary(es.UTF-8):	Soporte de sonido a través de ESD
+Summary(pl.UTF-8):	Obsługa dźwięku poprzez ESD
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sound-esd = %{epoch}:%{version}-%{release}
@@ -190,8 +190,8 @@ Obsługa dźwięku poprzez ESD.
 
 %package plugin-sound-oss
 Summary:	OSS sound support
-Summary(es.UTF-8):   Soporte de sonido a través de OSS
-Summary(pl.UTF-8):   Obsługa dźwięku OSS
+Summary(es.UTF-8):	Soporte de sonido a través de OSS
+Summary(pl.UTF-8):	Obsługa dźwięku OSS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	%{name}-sound-oss = %{epoch}:%{version}-%{release}
@@ -208,8 +208,8 @@ Obsługa dźwięku OSS.
 
 %package plugin-sound-external
 Summary:	Sound support with external player
-Summary(es.UTF-8):   Soporte de sonido vía un reproductor externo
-Summary(pl.UTF-8):   Obsługa dźwięku przez zewnętrzny program
+Summary(es.UTF-8):	Soporte de sonido vía un reproductor externo
+Summary(pl.UTF-8):	Obsługa dźwięku przez zewnętrzny program
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sound-external = %{epoch}:%{version}-%{release}
@@ -226,8 +226,8 @@ Obsługa dźwięku przez zewnętrzny program.
 
 %package plugin-sound-aRts
 Summary:	Sound support with aRts
-Summary(es.UTF-8):   Soporte de sonido a través de aRts
-Summary(pl.UTF-8):   Obsługa dźwięku poprzez aRts
+Summary(es.UTF-8):	Soporte de sonido a través de aRts
+Summary(pl.UTF-8):	Obsługa dźwięku poprzez aRts
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sound-aRts = %{epoch}:%{version}-%{release}
@@ -244,8 +244,8 @@ Obsługa dźwięku poprzez aRts.
 
 %package plugin-xosd
 Summary:	Support for X On Screen Display
-Summary(es.UTF-8):   Soporte para plasmar mensajes sobre el fondo de X
-Summary(pl.UTF-8):   Wyświetlanie komunikatów na ekranie X
+Summary(es.UTF-8):	Soporte para plasmar mensajes sobre el fondo de X
+Summary(pl.UTF-8):	Wyświetlanie komunikatów na ekranie X
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-xosd = %{epoch}:%{version}-%{release}
@@ -262,8 +262,8 @@ Wyświetlanie komunikatów na ekranie X.
 
 %package plugin-docklet-system-tray
 Summary:	Support for Window Managers notification areas
-Summary(es.UTF-8):   Soporte para áreas de notificación de los Manejantes de Ventanas
-Summary(pl.UTF-8):   Obsługa obszarów powiadomień w różnych zarządcach okien
+Summary(es.UTF-8):	Soporte para áreas de notificación de los Manejantes de Ventanas
+Summary(pl.UTF-8):	Obsługa obszarów powiadomień w różnych zarządcach okien
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-docklet-system-tray = %{epoch}:%{version}-%{release}
@@ -282,8 +282,8 @@ Obsługa obszarów powiadomień w różnych zarządcach okien (GNOME, KDE).
 
 %package plugin-docklet-dockapp
 Summary:	Support for WindowMaker-style dockapp
-Summary(es.UTF-8):   Soporte de dockapp estilo WindowMaker
-Summary(pl.UTF-8):   Obsługa dokowalnego apletu zgodnego z WindowMakerem
+Summary(es.UTF-8):	Soporte de dockapp estilo WindowMaker
+Summary(pl.UTF-8):	Obsługa dokowalnego apletu zgodnego z WindowMakerem
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-docklet-dockapp = %{epoch}:%{version}-%{release}
@@ -303,8 +303,8 @@ Obsługa dokowalnego apletu zgodnego z WindowMakerem.
 
 %package plugin-sms
 Summary:	SMS Gateway
-Summary(es.UTF-8):   Puerta SMS
-Summary(pl.UTF-8):   Bramka SMS
+Summary(es.UTF-8):	Puerta SMS
+Summary(pl.UTF-8):	Bramka SMS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-sms = %{epoch}:%{version}-%{release}
@@ -322,7 +322,7 @@ WWW.
 
 %package plugin-history-external
 Summary:	Allow to view GNU Gadu chat history
-Summary(pl.UTF-8):   Przeglądanie historii rozmów GNU Gadu
+Summary(pl.UTF-8):	Przeglądanie historii rozmów GNU Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gtk+2
@@ -337,8 +337,8 @@ Wtyczka pozwalająca przeglądać historię rozmów GNU Gadu.
 
 %package plugin-update
 Summary:	Check for new GNU Gadu newer version
-Summary(es.UTF-8):   Verifica si hay versiones nuevas de GNU Gadu
-Summary(pl.UTF-8):   Sprawdzanie dostępności nowszej wersji GNU Gadu
+Summary(es.UTF-8):	Verifica si hay versiones nuevas de GNU Gadu
+Summary(pl.UTF-8):	Sprawdzanie dostępności nowszej wersji GNU Gadu
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	gg2-update = %{epoch}:%{version}-%{release}
@@ -355,7 +355,7 @@ Wtyczka sprawdzająca, czy jest dostępna nowsza wersja GNU Gadu.
 
 %package plugin-dbus
 Summary:	Allow to communicate using D-BUS message bus
-Summary(pl.UTF-8):   Komunikacja za pomocą magistrali D-BUS
+Summary(pl.UTF-8):	Komunikacja za pomocą magistrali D-BUS
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -367,7 +367,7 @@ Wtyczka pozwala na komunikację za pomocą magistrali D-BUS.
 
 %package plugin-auto-away
 Summary:	Auto-Away Plugin
-Summary(pl.UTF-8):   Wtyczka automatycznego stany zajętości
+Summary(pl.UTF-8):	Wtyczka automatycznego stany zajętości
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -379,7 +379,7 @@ Wtyczka automatycznego stany zajętości.
 
 %package plugin-ignore
 Summary:	Allow to create list of ignored contacts
-Summary(pl.UTF-8):   Wtyczka pozwalająca stworzyć listę kontaktów ignorowanych
+Summary(pl.UTF-8):	Wtyczka pozwalająca stworzyć listę kontaktów ignorowanych
 Group:		Applications/Communications
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -391,8 +391,8 @@ Wtyczka pozwalająca stworzyć listę kontaktów ignorowanych.
 
 %package themes
 Summary:	Themes for GNU Gadu 2 GUI
-Summary(es.UTF-8):   Temas para el GUI de GNU Gadu 2
-Summary(pl.UTF-8):   Motywy graficzne dla GUI GNU Gadu 2
+Summary(es.UTF-8):	Temas para el GUI de GNU Gadu 2
+Summary(pl.UTF-8):	Motywy graficzne dla GUI GNU Gadu 2
 Group:		Applications/Communications
 Requires:	%{name}-gui-gtk+2 = %{epoch}:%{version}-%{release}
 
