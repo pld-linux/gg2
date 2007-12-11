@@ -42,6 +42,7 @@ BuildRequires:	perl-devel
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 %endif
 Requires:	gg2-ui
+Suggests:	gg2-plugin-gadu-gadu
 Obsoletes:	gg-common
 Obsoletes:	gg-kde
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
