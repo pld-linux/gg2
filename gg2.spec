@@ -12,7 +12,7 @@ Summary(es.UTF-8):	GNU Gadu 2 - charlar libremente
 Summary(pl.UTF-8):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.3.0
-Release:	1
+Release:	2
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
