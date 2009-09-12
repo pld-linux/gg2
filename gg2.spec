@@ -12,7 +12,7 @@ Summary(es.UTF-8):	GNU Gadu 2 - charlar libremente
 Summary(pl.UTF-8):	GNU Gadu 2 - wolne gadanie
 Name:		gg2
 Version:	2.3.0
-Release:	2
+Release:	3
 Epoch:		3
 License:	GPL v2+
 Group:		Applications/Communications
@@ -39,7 +39,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %if %{with perl}
 BuildRequires:	perl-devel
-Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 %endif
 Requires:	gg2-ui
 Suggests:	gg2-plugin-gadu-gadu
